@@ -57,6 +57,7 @@ export const capabilityNav: SiteNavItem[] = [
 
 export const docsNav: SiteNavItem[] = [
   { label: 'Docs home', to: '/docs' },
+  { label: 'Examples', to: '/docs/examples' },
   { label: 'Installation', to: '/docs/installation' },
   { label: 'Quick start', to: '/docs/quickstart' },
   { label: 'Core concepts', to: '/docs/concepts' },

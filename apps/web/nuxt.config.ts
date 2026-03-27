@@ -82,4 +82,8 @@ export default defineNuxtConfig({
       ...(siteUrl ? { baseURL: siteUrl } : {}),
     },
   },
+
+  routeRules: {
+    '/examples/aapl': { redirect: '/docs/examples/aapl' },
+  },
 })

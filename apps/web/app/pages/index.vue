@@ -151,7 +151,6 @@ const capabilityCards = [
                   :show-volume="true"
                   :show-brush="true"
                   :show-crosshair="true"
-                  chart-title="Hero preview"
                   chart-description="Synthetic OHLCV for marketing preview."
                 />
                 <template #fallback>
