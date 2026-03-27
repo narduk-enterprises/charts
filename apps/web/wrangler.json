@@ -1,0 +1,103 @@
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "charts",
+  "main": ".output/server/index.mjs",
+  "assets": {
+    "directory": ".output/public"
+  },
+  "compatibility_date": "2026-03-03",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "bb815870ad364685bec46ecd4a276f28",
+      "preview_id": "ebfe21e9153d484281ae727a88ec913e"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "charts-db",
+      "database_id": "e4147909-55f7-4347-b43f-1ddd233e87dd"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "RL_10",
+      "namespace_id": "50110",
+      "simple": {
+        "limit": 10,
+        "period": 60
+      }
+    },
+    {
+      "name": "RL_20",
+      "namespace_id": "50120",
+      "simple": {
+        "limit": 20,
+        "period": 60
+      }
+    },
+    {
+      "name": "RL_30",
+      "namespace_id": "50130",
+      "simple": {
+        "limit": 30,
+        "period": 60
+      }
+    },
+    {
+      "name": "RL_60",
+      "namespace_id": "50160",
+      "simple": {
+        "limit": 60,
+        "period": 60
+      }
+    },
+    {
+      "name": "RL_120",
+      "namespace_id": "50121",
+      "simple": {
+        "limit": 120,
+        "period": 60
+      }
+    },
+    {
+      "name": "RL_240",
+      "namespace_id": "50240",
+      "simple": {
+        "limit": 240,
+        "period": 60
+      }
+    },
+    {
+      "name": "RL_300",
+      "namespace_id": "50300",
+      "simple": {
+        "limit": 300,
+        "period": 60
+      }
+    }
+  ],
+  "env": {
+    "postgres": {
+      "hyperdrive": [
+        {
+          "binding": "HYPERDRIVE",
+          "id": ""
+        }
+      ]
+    }
+  },
+  "routes": [
+    {
+      "pattern": "charts.nard.uk",
+      "custom_domain": true
+    }
+  ]
+}

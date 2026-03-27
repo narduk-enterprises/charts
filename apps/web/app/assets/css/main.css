@@ -1,0 +1,38 @@
+@theme {
+  --shadow-chart-glow: 0 0 0 1px rgb(255 255 255 / 0.05), 0 20px 60px rgb(8 145 178 / 0.18);
+  --shadow-chart-card: 0 10px 30px rgb(15 23 42 / 0.12);
+  --gradient-chart-hero: linear-gradient(135deg, rgb(13 148 136 / 0.18) 0%, rgb(6 182 212 / 0.16) 45%, rgb(59 130 246 / 0.14) 100%);
+  --gradient-chart-mesh: radial-gradient(circle at top left, rgb(45 212 191 / 0.18), transparent 32%), radial-gradient(circle at 80% 20%, rgb(34 211 238 / 0.14), transparent 28%), radial-gradient(circle at 50% 100%, rgb(14 165 233 / 0.1), transparent 30%);
+  --chart-grid-line: rgb(148 163 184 / 0.14);
+}
+
+:root {
+  --ui-radius: 1rem;
+}
+
+body {
+  background:
+    var(--gradient-chart-mesh),
+    linear-gradient(180deg, rgb(248 250 252) 0%, rgb(255 255 255) 35%, rgb(240 249 255) 100%);
+}
+
+.dark body {
+  background:
+    var(--gradient-chart-mesh),
+    linear-gradient(180deg, rgb(2 6 23) 0%, rgb(3 7 18) 45%, rgb(8 15 32) 100%);
+}
+
+.chart-grid {
+  background-image:
+    linear-gradient(to right, var(--chart-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--chart-grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.chart-glow {
+  box-shadow: var(--shadow-chart-glow);
+}
+
+.chart-card {
+  box-shadow: var(--shadow-chart-card);
+}

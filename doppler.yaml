@@ -1,0 +1,3 @@
+setup:
+  project: charts
+  config: dev
