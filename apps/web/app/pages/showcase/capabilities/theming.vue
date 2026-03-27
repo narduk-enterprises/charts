@@ -58,6 +58,16 @@ const code = `<NardukLineChart
           :dark="false"
         />
       </LiveDemoPane>
+      <LiveDemoPane title="Default + dark" description="Same tokens with dark-friendly backgrounds.">
+        <NardukLineChart
+          class="w-full min-w-0"
+          :series="series"
+          :labels="labels"
+          :height="260"
+          theme="default"
+          :dark="true"
+        />
+      </LiveDemoPane>
       <LiveDemoPane
         title="High contrast"
         description="Stronger strokes for compliance desks and war rooms."
@@ -69,6 +79,32 @@ const code = `<NardukLineChart
           :height="260"
           theme="high-contrast"
           :dark="true"
+        />
+      </LiveDemoPane>
+      <LiveDemoPane
+        title="Print"
+        description="High legibility for PDFs and monochrome printers."
+      >
+        <NardukLineChart
+          class="w-full min-w-0"
+          :series="series"
+          :labels="labels"
+          :height="260"
+          theme="print"
+          :dark="false"
+        />
+      </LiveDemoPane>
+      <LiveDemoPane
+        title="Colorblind-safe"
+        description="Palette tuned for deuteranopia-friendly distinction."
+      >
+        <NardukLineChart
+          class="w-full min-w-0"
+          :series="series"
+          :labels="labels"
+          :height="260"
+          theme="colorblind-safe"
+          :dark="false"
         />
       </LiveDemoPane>
     </div>

@@ -24,6 +24,13 @@ const series = ref(demoMonthlyBar(labels))
 const stacked = ref(false)
 const stackedPercent = ref(false)
 
+watch(stackedPercent, (on) => {
+  if (on) stacked.value = true
+})
+watch(stacked, (on) => {
+  if (!on) stackedPercent.value = false
+})
+
 const code = computed(
   () => `<NardukBarChart
   :series="series"
@@ -51,8 +58,12 @@ const code = computed(
 
     <div class="mt-6 flex flex-wrap gap-4">
       <UCheckbox v-model="stacked" label="Stacked" />
-      <UCheckbox v-model="stackedPercent" :disabled="!stacked" label="100% stack" />
+      <UCheckbox v-model="stackedPercent" label="100% stack" />
     </div>
+    <p class="mt-2 max-w-2xl text-xs text-muted">
+      Turning on 100% stack enables stacked layout automatically (and the bar component treats
+      percent mode as stacked). Unchecking Stacked clears percent mode.
+    </p>
 
     <LiveDemoPane
       class="mt-6"

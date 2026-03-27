@@ -64,7 +64,10 @@ const code = computed(
     </h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
       Category-indexed performance lines with optional secondary axis for comparing portfolio vs
-      benchmark, session annotations, and Y bands.
+      benchmark, session annotations, and Y bands. When dual Y is on, the
+      <strong class="text-highlighted">left</strong> scale tracks the benchmark series (indexed to
+      ~100) and the <strong class="text-highlighted">right</strong> scale tracks the portfolio
+      sleeve in the same arbitrary units—axis tick numbers are the proof.
     </p>
 
     <div class="mt-6 flex flex-wrap items-center gap-4">

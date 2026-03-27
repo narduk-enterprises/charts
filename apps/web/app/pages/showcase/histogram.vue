@@ -39,13 +39,14 @@ const code = `<NardukHistogramChart
     <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Histogram</h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
       Feed raw samples or explicit bins for desk-level risk visualization (daily returns, slippage,
-      latency).
+      latency). The horizontal axis is daily log-return (synthetic); the vertical axis is a count of
+      observations per bin.
     </p>
 
     <LiveDemoPane
       class="mt-6"
       title="Synthetic daily returns"
-      description="Deterministic fixture for repeatable screenshots."
+      description="Deterministic fixture for repeatable screenshots. First paint can follow layout; resize or toggle bin count if the plot looks empty."
     >
       <NardukHistogramChart
         chart-title="Return distribution"

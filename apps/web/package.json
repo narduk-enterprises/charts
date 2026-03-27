@@ -25,7 +25,7 @@
     "format:check": "prettier --check \"**/*.{ts,mts,vue,js,mjs,json,yaml,yml,css,md}\" --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "@narduk-enterprises/narduk-charts": "^2.0.1",
+    "@narduk-enterprises/narduk-charts": "^2.0.2",
     "@iconify-json/lucide": "^1.2.94",
     "@narduk-enterprises/narduk-nuxt-template-layer": "workspace:*",
     "@narduk-enterprises/eslint-config": "^1.0.17",

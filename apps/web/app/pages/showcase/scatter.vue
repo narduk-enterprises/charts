@@ -37,8 +37,10 @@ const code = `<NardukScatterChart
     />
     <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Scatter</h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
-      Numeric X/Y plotting for volatility vs return, beta buckets, or liquidity scores. Points emit
-      click payloads for drill-down routing.
+      Numeric X/Y plotting for volatility vs return, beta buckets, or liquidity scores. In this
+      fixture, <strong class="text-highlighted">X</strong> is illustrative annualized volatility
+      (percent) and <strong class="text-highlighted">Y</strong> is illustrative drawdown depth
+      (percent of NAV). Points emit click payloads for drill-down routing.
     </p>
 
     <LiveDemoPane

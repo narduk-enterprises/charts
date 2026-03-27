@@ -141,26 +141,23 @@ const capabilityCards = [
                 </div>
                 <UBadge color="neutral" variant="subtle">@narduk-enterprises/narduk-charts</UBadge>
               </div>
-              <ClientOnly>
-                <NardukCandleChart
-                  class="w-full min-w-0"
-                  :bars="heroBars"
-                  :height="340"
-                  :dark="chartDark"
-                  :zoomable="true"
-                  :show-volume="true"
-                  :show-brush="true"
-                  :show-crosshair="true"
-                  chart-description="Synthetic OHLCV for marketing preview."
-                />
-                <template #fallback>
-                  <div
-                    class="flex h-[340px] items-center justify-center rounded-lg border border-dashed border-default/60 text-sm text-muted"
-                  >
-                    Loading chart…
-                  </div>
-                </template>
-              </ClientOnly>
+              <NardukCandleChart
+                class="w-full min-w-0"
+                :bars="heroBars"
+                :height="340"
+                :dark="chartDark"
+                :zoomable="true"
+                :show-volume="true"
+                :show-brush="true"
+                :show-crosshair="true"
+                chart-description="Synthetic OHLCV for marketing preview."
+              />
+              <noscript>
+                <p class="mt-2 text-xs text-muted">
+                  Interactive zoom and crosshair require JavaScript; static frame above is an SVG
+                  snapshot from the same component props.
+                </p>
+              </noscript>
             </div>
           </UCard>
         </div>

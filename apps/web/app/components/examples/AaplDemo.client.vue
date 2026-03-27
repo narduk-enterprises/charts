@@ -407,7 +407,7 @@ function formatCompactVolume(n: number) {
             variant="ghost"
             :aria-pressed="isFullscreen"
             :aria-label="isFullscreen ? 'Exit full screen chart' : 'View chart full screen'"
-            @click="toggle"
+            @click="() => void toggle()"
           >
             {{ isFullscreen ? 'Exit full screen' : 'Full screen' }}
           </UButton>

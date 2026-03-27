@@ -16,7 +16,16 @@ useWebPageSchema({ name: pageTitle, description: pageDescription })
 <template>
   <UContainer class="py-12 sm:py-16">
     <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Enterprise</h1>
-    <div class="mt-8 max-w-3xl space-y-4 text-muted">
+    <p class="mt-4 max-w-3xl text-muted">
+      The open-source library ships under MIT; production integrations typically pair it with your
+      data plane, auth, and execution stack. Below is how teams evaluate fit before a wider rollout.
+    </p>
+    <div class="mt-10 max-w-3xl space-y-4 text-muted">
+      <p>
+        <strong class="text-highlighted">Licensing.</strong>
+        <code class="text-primary">@narduk-enterprises/narduk-charts</code> is MIT-licensed. Forks and
+        private mirrors are expected; attribute the license file in distributions you ship.
+      </p>
       <p>
         <strong class="text-highlighted">Scope clarity.</strong> Core charts exclude broker-specific
         execution widgets so compliance teams can review a bounded surface.
@@ -30,8 +39,19 @@ useWebPageSchema({ name: pageTitle, description: pageDescription })
         audit artifacts; deterministic studies simplify golden tests.
       </p>
       <p>
-        <strong class="text-highlighted">Support path.</strong> Source is on GitHub; pin versions in
-        lockfiles and track releases for breaking changes.
+        <strong class="text-highlighted">Versioning.</strong> Semver on the npm package; pin exact
+        versions in lockfiles and read release notes for interaction contract tweaks.
+      </p>
+      <p>
+        <strong class="text-highlighted">Support &amp; SLAs.</strong> Community issues and discussions
+        run on GitHub. Dedicated support tiers, custom SLAs, and integration reviews are available
+        through Narduk Enterprises for qualifying desks—use your procurement channel or site contact
+        to scope workload, response times, and security questionnaires.
+      </p>
+      <p>
+        <strong class="text-highlighted">Typical architecture.</strong> Browser or embedded WebView
+        clients consume Vue components; your Workers or APIs stream OHLC and study inputs; PNG/SVG
+        exports attach to ticketing and compliance archives.
       </p>
     </div>
     <div class="mt-10 flex flex-wrap gap-2">
@@ -39,6 +59,7 @@ useWebPageSchema({ name: pageTitle, description: pageDescription })
       <UButton to="/product/performance" color="neutral" variant="outline"
         >Performance posture</UButton
       >
+      <UButton to="/product/integration" color="neutral" variant="outline">Integration</UButton>
     </div>
   </UContainer>
 </template>

@@ -84,6 +84,18 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/examples/aapl': { redirect: '/docs/examples/aapl' },
+    '/examples': { redirect: { to: '/docs/examples', statusCode: 301 } },
+    '/examples/': { redirect: { to: '/docs/examples', statusCode: 301 } },
+    '/examples/aapl': { redirect: { to: '/docs/examples/aapl', statusCode: 301 } },
+    '/examples/trading': { redirect: { to: '/showcase/candle', statusCode: 301 } },
+    '/examples/candle': { redirect: { to: '/showcase/candle', statusCode: 301 } },
+    '/examples/line': { redirect: { to: '/showcase/line', statusCode: 301 } },
+    '/examples/bar': { redirect: { to: '/showcase/bar', statusCode: 301 } },
+    '/examples/pie': { redirect: { to: '/showcase/pie', statusCode: 301 } },
+    '/examples/scatter': { redirect: { to: '/showcase/scatter', statusCode: 301 } },
+    '/examples/histogram': { redirect: { to: '/showcase/histogram', statusCode: 301 } },
+    '/examples/streaming': { redirect: { to: '/showcase/capabilities/realtime', statusCode: 301 } },
+    '/playground': { redirect: { to: '/showcase', statusCode: 301 } },
+    '/playground/': { redirect: { to: '/showcase', statusCode: 301 } },
   },
 })

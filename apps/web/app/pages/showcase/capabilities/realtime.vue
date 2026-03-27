@@ -42,9 +42,11 @@ const lineSeries = computed(() => [
 ])
 
 let timer: ReturnType<typeof setInterval> | undefined
+const tickCount = ref(0)
 
 onMounted(() => {
   timer = setInterval(() => {
+    tickCount.value += 1
     const last = bars.value.at(-1)
     if (!last) return
     const drift = (Math.random() - 0.45) * 6
@@ -84,7 +86,12 @@ onUnmounted(() => {
       <code class="text-primary">t</code> matches;
       <code class="text-primary">useStreamingSeries</code> drops oldest samples as new values
       arrive. Both respect optional <code class="text-primary">maxUpdatesPerSecond</code> guards for
-      websocket-heavy desks.
+      websocket-heavy desks. This page appends synthetic bars on a timer so you can watch the window
+      roll without a live socket.
+    </p>
+    <p class="mt-2 text-sm text-muted">
+      Demo timer ticks (client-only):
+      <span class="font-mono text-highlighted">{{ tickCount }}</span>
     </p>
 
     <div class="mt-8 space-y-8">
