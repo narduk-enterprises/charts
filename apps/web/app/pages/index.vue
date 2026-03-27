@@ -61,7 +61,7 @@ const capabilityCards = [
 </script>
 
 <template>
-  <div role="main">
+  <div>
     <section class="relative overflow-hidden border-b border-default/60">
       <div
         class="pointer-events-none absolute inset-0 bg-linear-to-b from-muted/40 to-transparent"
@@ -133,9 +133,11 @@ const capabilityCards = [
               <div class="flex items-center justify-between gap-3">
                 <div>
                   <p class="text-xs font-semibold uppercase tracking-wide text-muted">
-                    Live preview
+                    Interactive sample
                   </p>
-                  <p class="text-sm font-medium text-highlighted">ES continuous — demo session</p>
+                  <p class="text-sm font-medium text-highlighted">
+                    Synthetic OHLCV — production components, demo data
+                  </p>
                 </div>
                 <UBadge color="neutral" variant="subtle">@narduk-enterprises/narduk-charts</UBadge>
               </div>

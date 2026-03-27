@@ -43,6 +43,14 @@ export default defineNuxtConfig({
     public: {
       appUrl: process.env.SITE_URL || localAppUrl,
       appName: process.env.APP_NAME || 'Narduk Charts',
+      /** Stonx market-data WebSocket + HTTPS (AAPL flagship demo). */
+      cspConnectSrc: [
+        process.env.CSP_CONNECT_SRC?.trim(),
+        'wss://stonx.app',
+        'https://stonx.app',
+      ]
+        .filter((s): s is string => Boolean(s && s.length > 0))
+        .join(','),
       // Analytics (client-side tracking)
       posthogPublicKey: process.env.POSTHOG_PUBLIC_KEY || '',
       posthogHost: process.env.POSTHOG_HOST || 'https://us.i.posthog.com',
