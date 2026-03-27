@@ -62,8 +62,8 @@ importers:
         specifier: ^1.0.17
         version: 1.0.17(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.2(@opentelemetry/api@1.9.1)(@types/node@22.19.15)(happy-dom@20.8.9)(vite@7.3.1(@types/node@22.19.15)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)))(vue-eslint-parser@10.4.0(eslint@9.39.4(jiti@2.6.1)))
       '@narduk-enterprises/narduk-charts':
-        specifier: ^2.0.0
-        version: 2.0.0(vue@3.5.31(typescript@5.9.3))
+        specifier: ^2.0.1
+        version: 2.0.1(vue@3.5.31(typescript@5.9.3))
       '@narduk-enterprises/narduk-nuxt-template-layer':
         specifier: workspace:*
         version: link:../../layers/narduk-nuxt-layer
@@ -1046,8 +1046,8 @@ packages:
       eslint: '>=9.0.0'
       vue-eslint-parser: '>=10.0.0'
 
-  '@narduk-enterprises/narduk-charts@2.0.0':
-    resolution: {integrity: sha512-J3npVRcHT7x1/sdq+dvQoZtIgTY06muTJLNqP9oI9UhWVJ3H7cnCgP97sHeIYAVz/fevaGrhx696XXJwArJiMA==, tarball: https://npm.pkg.github.com/download/@narduk-enterprises/narduk-charts/2.0.0/64123218b624ce475e65acc43d96d2244aaa66b4}
+  '@narduk-enterprises/narduk-charts@2.0.1':
+    resolution: {integrity: sha512-DI7/SClbZDu9fhkOJZXIxnJFM+tKBrbodhn7BGmWsFQaoke/NRLsSG22VJw+/ALc9J36oxe3r6jjH7vv04uEMg==, tarball: https://npm.pkg.github.com/download/@narduk-enterprises/narduk-charts/2.0.1/ad63a76c97d884bf638bb4ca745fab23ed574da1}
     peerDependencies:
       vue: ^3.3.0
 
@@ -7732,7 +7732,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@narduk-enterprises/narduk-charts@2.0.0(vue@3.5.31(typescript@5.9.3))':
+  '@narduk-enterprises/narduk-charts@2.0.1(vue@3.5.31(typescript@5.9.3))':
     dependencies:
       vue: 3.5.31(typescript@5.9.3)
 
