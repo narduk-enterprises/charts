@@ -11,6 +11,8 @@ export default defineNuxtConfig({
   // Extend the published Narduk Nuxt Layer
   extends: ['@narduk-enterprises/narduk-nuxt-template-layer'],
 
+  css: ['@narduk-enterprises/narduk-charts/style.css'],
+
   // nitro-cloudflare-dev proxies D1 bindings to the local dev server
   modules: ['nitro-cloudflare-dev'],
 
@@ -54,7 +56,7 @@ export default defineNuxtConfig({
     ...(siteUrl ? { url: siteUrl } : {}),
     name: 'Narduk Charts',
     description:
-      'The narduk chart library. Vue Charts that don\'t suck.',
+      'Vue 3 SVG charting for trading platforms: OHLC, multi-pane sync, studies, and production-grade interactions.',
     defaultLocale: 'en',
   },
 

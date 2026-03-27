@@ -23,6 +23,10 @@ Bootstrap guard:
   **`kv_namespaces`** for binding **`KV`** (real **`id`** and **`preview_id`**).
   See the root handbook **`docs/agents/operations.md`** (control plane KV).
 
+### `@narduk-enterprises/narduk-charts` (apps/web)
+
+`apps/web` installs **`@narduk-enterprises/narduk-charts`** from **GitHub Packages** (`^2.0.0`, pinned in `pnpm-lock.yaml`). Local installs and CI need a **`read:packages`** token for the `@narduk-enterprises` scope (see root **`.npmrc`** and **`GH_PACKAGES_TOKEN`** / `NODE_AUTH_TOKEN` in CI).
+
 ## Template Updates
 
 Use a local checkout of `narduk-nuxt-template` as the source of truth.

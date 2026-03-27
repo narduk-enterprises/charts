@@ -10,11 +10,13 @@ test.describe('web smoke', () => {
     await warmUpApp(browser, baseURL)
   })
 
-  test('home page renders the coming soon hero', async ({ page }) => {
+  test('home page renders the product hero', async ({ page }) => {
     await page.goto('/')
     await waitForHydration(page)
-    await expect(page.getByText('Coming Soon').first()).toBeVisible()
-    await expect(page.getByText('Something amazing is on the way').first()).toBeVisible()
-    await expect(page).toHaveTitle(/Coming Soon/)
+    await expect(
+      page.getByRole('heading', { level: 1, name: /Precision charting for serious market software/i }),
+    ).toBeVisible()
+    await expect(page.getByText(/@narduk-enterprises\/narduk-charts/).first()).toBeVisible()
+    await expect(page).toHaveTitle(/Narduk Charts/)
   })
 })
