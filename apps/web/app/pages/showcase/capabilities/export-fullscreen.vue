@@ -48,9 +48,11 @@ async function savePng() {
       Fullscreen &amp; raster export
     </h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
-      Wrap desks with <code class="text-primary">useChartFullscreen</code> for operator workflows. For compliance PDFs, call
-      <code class="text-primary">exportChartPng</code> with <code class="text-primary">embeddedCss</code> set to the contents of
-      <code class="text-primary">@narduk-enterprises/narduk-charts/style.css</code> so themed strokes survive rasterization.
+      Wrap desks with <code class="text-primary">useChartFullscreen</code> for operator workflows.
+      For compliance PDFs, call <code class="text-primary">exportChartPng</code> with
+      <code class="text-primary">embeddedCss</code> set to the contents of
+      <code class="text-primary">@narduk-enterprises/narduk-charts/style.css</code> so themed
+      strokes survive rasterization.
     </p>
 
     <div class="mt-6 flex flex-wrap gap-2">
@@ -60,7 +62,10 @@ async function savePng() {
     </div>
 
     <div ref="targetRef" class="mt-6 rounded-xl border border-default/60 bg-default/30 p-3">
-      <LiveDemoPane title="Desk tile" description="Toggle fullscreen on the surrounding panel (library helper).">
+      <LiveDemoPane
+        title="Desk tile"
+        description="Toggle fullscreen on the surrounding panel (library helper)."
+      >
         <NardukLineChart
           chart-title="PnL attribution"
           class="w-full min-w-0"
@@ -76,6 +81,8 @@ async function savePng() {
       <h2 class="mb-3 text-lg font-semibold text-highlighted">Example</h2>
       <CodeBlock :code="code" context="showcase-export" />
     </div>
-    <UButton class="mt-6" to="/docs/api/utilities-export" color="primary" variant="soft">Export API</UButton>
+    <UButton class="mt-6" to="/docs/api/utilities-export" color="primary" variant="soft"
+      >Export API</UButton
+    >
   </UContainer>
 </template>

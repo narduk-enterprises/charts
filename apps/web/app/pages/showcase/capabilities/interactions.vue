@@ -38,12 +38,17 @@ const series = ref(demoBenchmarkSeries(labels))
       Interactions &amp; zoom models
     </h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
-      <strong>Line charts</strong> zoom on category indices (fractional windows) and can auto-rescale Y to the visible slice.
-      <strong>Candle charts</strong> zoom in bar index + time space, emit <code class="text-primary">v-model:domain</code>, and support brush + volume panes.
+      <strong>Line charts</strong> zoom on category indices (fractional windows) and can
+      auto-rescale Y to the visible slice. <strong>Candle charts</strong> zoom in bar index + time
+      space, emit <code class="text-primary">v-model:domain</code>, and support brush + volume
+      panes.
     </p>
 
     <div class="mt-10 space-y-8">
-      <LiveDemoPane title="Candle zoom + crosshair" description="Ctrl/Cmd+wheel, shift-pan, drag zoom box.">
+      <LiveDemoPane
+        title="Candle zoom + crosshair"
+        description="Ctrl/Cmd+wheel, shift-pan, drag zoom box."
+      >
         <NardukCandleChart
           class="w-full min-w-0"
           :bars="bars"
@@ -55,7 +60,10 @@ const series = ref(demoBenchmarkSeries(labels))
         />
       </LiveDemoPane>
 
-      <LiveDemoPane title="Line zoom + dual tooltip" description="Drag zoom on the category axis; legend toggles series.">
+      <LiveDemoPane
+        title="Line zoom + dual tooltip"
+        description="Drag zoom on the category axis; legend toggles series."
+      >
         <NardukLineChart
           class="w-full min-w-0"
           :series="series"
@@ -72,7 +80,9 @@ const series = ref(demoBenchmarkSeries(labels))
     <div class="mt-10 flex flex-wrap gap-2">
       <UButton to="/docs/events" color="primary" variant="soft">Events docs</UButton>
       <UButton to="/docs/api/narduk-line-chart" color="neutral" variant="outline">Line API</UButton>
-      <UButton to="/docs/api/narduk-candle-chart" color="neutral" variant="outline">Candle API</UButton>
+      <UButton to="/docs/api/narduk-candle-chart" color="neutral" variant="outline"
+        >Candle API</UButton
+      >
     </div>
   </UContainer>
 </template>

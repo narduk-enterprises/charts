@@ -36,14 +36,17 @@ const code = `<NardukHistogramChart
         { label: 'Histogram', to: '/showcase/histogram' },
       ]"
     />
-    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">
-      Histogram
-    </h1>
+    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Histogram</h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
-      Feed raw samples or explicit bins for desk-level risk visualization (daily returns, slippage, latency).
+      Feed raw samples or explicit bins for desk-level risk visualization (daily returns, slippage,
+      latency).
     </p>
 
-    <LiveDemoPane class="mt-6" title="Synthetic daily returns" description="Deterministic fixture for repeatable screenshots.">
+    <LiveDemoPane
+      class="mt-6"
+      title="Synthetic daily returns"
+      description="Deterministic fixture for repeatable screenshots."
+    >
       <NardukHistogramChart
         chart-title="Return distribution"
         class="w-full min-w-0"
@@ -58,6 +61,8 @@ const code = `<NardukHistogramChart
       <h2 class="mb-3 text-lg font-semibold text-highlighted">Example</h2>
       <CodeBlock :code="code" context="showcase-histogram" />
     </div>
-    <UButton class="mt-6" to="/docs/api/narduk-histogram-chart" color="primary" variant="soft">API reference</UButton>
+    <UButton class="mt-6" to="/docs/api/narduk-histogram-chart" color="primary" variant="soft"
+      >API reference</UButton
+    >
   </UContainer>
 </template>

@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-  LIBRARY_GITHUB_HREF,
-  capabilityNav,
-  docsNav,
-  productNav,
-  showcaseNav,
-} from '~/data/site'
+import { LIBRARY_GITHUB_HREF, capabilityNav, docsNav, productNav, showcaseNav } from '~/data/site'
 
 const config = useRuntimeConfig()
 const appName = config.public.appName || 'Narduk Charts'
@@ -134,7 +128,13 @@ function mobileGetStarted() {
           color="neutral"
           variant="ghost"
           square
-          :icon="colorMode.preference === 'dark' ? 'i-lucide-moon' : colorMode.preference === 'light' ? 'i-lucide-sun' : 'i-lucide-monitor'"
+          :icon="
+            colorMode.preference === 'dark'
+              ? 'i-lucide-moon'
+              : colorMode.preference === 'light'
+                ? 'i-lucide-sun'
+                : 'i-lucide-monitor'
+          "
           :aria-label="`Color mode: ${colorMode.preference}`"
           @click="cycleColorMode"
         />
@@ -176,81 +176,81 @@ function mobileGetStarted() {
 
     <USlideover v-model:open="mobileOpen" side="right" class="lg:hidden">
       <div class="flex h-full flex-col gap-4 p-4">
-          <div class="flex items-center justify-between">
-            <span class="font-semibold text-highlighted">Menu</span>
-            <UButton
-              square
-              variant="ghost"
-              color="neutral"
-              icon="i-lucide-x"
-              aria-label="Close"
-              @click="mobileOpen = false"
-            />
+        <div class="flex items-center justify-between">
+          <span class="font-semibold text-highlighted">Menu</span>
+          <UButton
+            square
+            variant="ghost"
+            color="neutral"
+            icon="i-lucide-x"
+            aria-label="Close"
+            @click="mobileOpen = false"
+          />
+        </div>
+        <div class="flex flex-col gap-6 overflow-y-auto">
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Product</p>
+            <div class="flex flex-col gap-1">
+              <UButton
+                v-for="p in productNav"
+                :key="p.to"
+                :to="p.to"
+                variant="ghost"
+                color="neutral"
+                class="justify-start"
+                @click="nav(p.to)"
+              >
+                {{ p.label }}
+              </UButton>
+            </div>
           </div>
-          <div class="flex flex-col gap-6 overflow-y-auto">
-            <div>
-              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Product</p>
-              <div class="flex flex-col gap-1">
-                <UButton
-                  v-for="p in productNav"
-                  :key="p.to"
-                  :to="p.to"
-                  variant="ghost"
-                  color="neutral"
-                  class="justify-start"
-                  @click="nav(p.to)"
-                >
-                  {{ p.label }}
-                </UButton>
-              </div>
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Showcase</p>
+            <div class="flex flex-col gap-1">
+              <UButton
+                v-for="p in [...showcaseNav, ...capabilityNav]"
+                :key="p.to"
+                :to="p.to"
+                variant="ghost"
+                color="neutral"
+                class="justify-start"
+                @click="nav(p.to)"
+              >
+                {{ p.label }}
+              </UButton>
             </div>
-            <div>
-              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Showcase</p>
-              <div class="flex flex-col gap-1">
-                <UButton
-                  v-for="p in [...showcaseNav, ...capabilityNav]"
-                  :key="p.to"
-                  :to="p.to"
-                  variant="ghost"
-                  color="neutral"
-                  class="justify-start"
-                  @click="nav(p.to)"
-                >
-                  {{ p.label }}
-                </UButton>
-              </div>
-            </div>
-            <div>
-              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Docs</p>
-              <div class="flex flex-col gap-1">
-                <UButton
-                  v-for="p in docsNav"
-                  :key="p.to"
-                  :to="p.to"
-                  variant="ghost"
-                  color="neutral"
-                  class="justify-start"
-                  @click="nav(p.to)"
-                >
-                  {{ p.label }}
-                </UButton>
-              </div>
-            </div>
-            <UButton
-              :to="LIBRARY_GITHUB_HREF"
-              target="_blank"
-              external
-              variant="outline"
-              color="neutral"
-              icon="i-lucide-github"
-              @click="captureGithubOutbound('library')"
-            >
-              Library on GitHub
-            </UButton>
-            <UButton to="/docs/quickstart" color="primary" @click="mobileGetStarted">
-              Get started
-            </UButton>
           </div>
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Docs</p>
+            <div class="flex flex-col gap-1">
+              <UButton
+                v-for="p in docsNav"
+                :key="p.to"
+                :to="p.to"
+                variant="ghost"
+                color="neutral"
+                class="justify-start"
+                @click="nav(p.to)"
+              >
+                {{ p.label }}
+              </UButton>
+            </div>
+          </div>
+          <UButton
+            :to="LIBRARY_GITHUB_HREF"
+            target="_blank"
+            external
+            variant="outline"
+            color="neutral"
+            icon="i-lucide-github"
+            @click="captureGithubOutbound('library')"
+          >
+            Library on GitHub
+          </UButton>
+          <UButton to="/docs/quickstart" color="primary" @click="mobileGetStarted">
+            Get started
+          </UButton>
+        </div>
       </div>
     </USlideover>
   </div>

@@ -14,7 +14,10 @@ test.describe('web smoke', () => {
     await page.goto('/')
     await waitForHydration(page)
     await expect(
-      page.getByRole('heading', { level: 1, name: /Precision charting for serious market software/i }),
+      page.getByRole('heading', {
+        level: 1,
+        name: /Precision charting for serious market software/i,
+      }),
     ).toBeVisible()
     await expect(page.getByText(/@narduk-enterprises\/narduk-charts/).first()).toBeVisible()
     await expect(page).toHaveTitle(/Narduk Charts/)

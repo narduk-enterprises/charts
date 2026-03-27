@@ -7,11 +7,31 @@ export type SiteNavItem = { label: string; to: string; description?: string }
 export type SiteNavGroup = { label: string; items: SiteNavItem[] }
 
 export const productNav: SiteNavItem[] = [
-  { label: 'Features', to: '/product/features', description: 'Capabilities mapped to real library APIs.' },
-  { label: 'Performance', to: '/product/performance', description: 'SVG budgets, aggregation, and render strategy.' },
-  { label: 'Theming', to: '/product/theming', description: 'Trading-credible light/dark and accessibility themes.' },
-  { label: 'Integration', to: '/product/integration', description: 'Nuxt, Vite, tree-shakable entries, exports.' },
-  { label: 'Enterprise', to: '/product/enterprise', description: 'Evaluation criteria for trading and fintech teams.' },
+  {
+    label: 'Features',
+    to: '/product/features',
+    description: 'Capabilities mapped to real library APIs.',
+  },
+  {
+    label: 'Performance',
+    to: '/product/performance',
+    description: 'SVG budgets, aggregation, and render strategy.',
+  },
+  {
+    label: 'Theming',
+    to: '/product/theming',
+    description: 'Trading-credible light/dark and accessibility themes.',
+  },
+  {
+    label: 'Integration',
+    to: '/product/integration',
+    description: 'Nuxt, Vite, tree-shakable entries, exports.',
+  },
+  {
+    label: 'Enterprise',
+    to: '/product/enterprise',
+    description: 'Evaluation criteria for trading and fintech teams.',
+  },
 ]
 
 export const showcaseNav: SiteNavItem[] = [

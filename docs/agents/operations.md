@@ -25,7 +25,10 @@ Bootstrap guard:
 
 ### `@narduk-enterprises/narduk-charts` (apps/web)
 
-`apps/web` installs **`@narduk-enterprises/narduk-charts`** from **GitHub Packages** (`^2.0.0`, pinned in `pnpm-lock.yaml`). Local installs and CI need a **`read:packages`** token for the `@narduk-enterprises` scope (see root **`.npmrc`** and **`GH_PACKAGES_TOKEN`** / `NODE_AUTH_TOKEN` in CI).
+`apps/web` installs **`@narduk-enterprises/narduk-charts`** from **GitHub
+Packages** (`^2.0.0`, pinned in `pnpm-lock.yaml`). Local installs and CI need a
+**`read:packages`** token for the `@narduk-enterprises` scope (see root
+**`.npmrc`** and **`GH_PACKAGES_TOKEN`** / `NODE_AUTH_TOKEN` in CI).
 
 ## Template Updates
 

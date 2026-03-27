@@ -6,7 +6,11 @@ const route = useRoute()
 
 <template>
   <aside class="hidden w-56 shrink-0 lg:block">
-    <div class="sticky top-20 space-y-1 border-l border-default/60 pl-4" role="navigation" aria-label="Documentation">
+    <div
+      class="sticky top-20 space-y-1 border-l border-default/60 pl-4"
+      role="navigation"
+      aria-label="Documentation"
+    >
       <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">On this site</p>
       <NuxtLink
         v-for="item in docsNav"

@@ -66,8 +66,7 @@ export function demoRiskScatter(): ScatterSeries[] {
 
 export function demoMonthlyBar(labels: string[]): ChartSeries[] {
   const rand = mulberry32(1202)
-  const mk = (bias: number) =>
-    labels.map(() => Math.round(20 + rand() * 55 + bias))
+  const mk = (bias: number) => labels.map(() => Math.round(20 + rand() * 55 + bias))
   return [
     { name: 'Revenue', data: mk(0) },
     { name: 'Hedge cost', data: mk(-8) },

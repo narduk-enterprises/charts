@@ -5,7 +5,11 @@ const pageTitle = 'Product features — Narduk Charts'
 const pageDescription =
   'Capabilities grounded in the shipped public API: seven chart families, streaming helpers, studies, and export utilities.'
 
-useSeo({ title: pageTitle, description: pageDescription, ogImage: { title: pageTitle, description: pageDescription } })
+useSeo({
+  title: pageTitle,
+  description: pageDescription,
+  ogImage: { title: pageTitle, description: pageDescription },
+})
 useWebPageSchema({ name: pageTitle, description: pageDescription })
 
 const featureRows = [
@@ -24,14 +28,11 @@ const featureRows = [
   <UContainer class="py-12 sm:py-16">
     <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Features</h1>
     <p class="mt-4 max-w-3xl text-muted">
-      Every item below maps to an export in <code>narduk-charts</code>—see the repo-root <code>CONTRACT.md</code> for enforcement rules.
+      Every item below maps to an export in <code>narduk-charts</code>—see the repo-root
+      <code>CONTRACT.md</code> for enforcement rules.
     </p>
     <div class="mt-10 grid gap-4 md:grid-cols-2">
-      <UCard
-        v-for="row in featureRows"
-        :key="row.t"
-        class="border-default/70"
-      >
+      <UCard v-for="row in featureRows" :key="row.t" class="border-default/70">
         <h2 class="text-lg font-semibold text-highlighted">{{ row.t }}</h2>
         <p class="mt-2 text-sm text-muted">{{ row.d }}</p>
       </UCard>

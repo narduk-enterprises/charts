@@ -27,29 +27,115 @@ export const apiDocPages: Record<string, ApiDocPage> = {
       "import '@narduk-enterprises/narduk-charts/style.css'",
     ],
     props: [
-      { name: 'bars', type: 'CandleBar[]', description: 'Sorted ascending by open time `t` (Unix ms).' },
-      { name: 'zoomable', type: 'boolean', default: 'false', description: 'Drag zoom, Ctrl/Cmd+wheel, Shift+drag pan, dbl-click reset.' },
-      { name: 'domain', type: 'CandleTimeDomain | null', description: 'Controlled viewport; use with v-model:domain to sync charts.' },
-      { name: 'showVolume', type: 'boolean', default: 'false', description: 'Renders volume histogram under price pane.' },
-      { name: 'showBrush', type: 'boolean', default: 'false', description: 'Time navigator under the plot.' },
-      { name: 'showCrosshair', type: 'boolean', default: 'true', description: 'Pointer crosshair with magnetic X to bar center.' },
-      { name: 'candleStyle', type: "'candle' | 'hollow' | 'bar'", default: "'candle'", description: 'Bodies, hollow candles, or OHLC ticks.' },
-      { name: 'priceDisplayMode', type: "'absolute' | 'percent' | 'indexed'", default: "'absolute'", description: 'Rebase visible closes for comparison views.' },
-      { name: 'yScale', type: "'linear' | 'log' | 'symlog'", default: "'linear'", description: 'Price scale mapping.' },
-      { name: 'maxDrawBars', type: 'number', default: '512', description: 'Cap aggregated buckets in the visible window.' },
-      { name: 'drawings', type: 'CandleDrawing[]', default: '[]', description: 'Persisted overlays in raw price/time space.' },
-      { name: 'drawingTool', type: 'CandleDrawingTool | null', default: 'null', description: 'When set, drag creates drawings instead of zoom box.' },
-      { name: 'theme', type: 'ChartTheme', description: 'Built-in theme tokens (high-contrast, print, colorblind-safe).' },
-      { name: 'dark', type: 'boolean', description: 'Force dark palette; otherwise follows container.' },
+      {
+        name: 'bars',
+        type: 'CandleBar[]',
+        description: 'Sorted ascending by open time `t` (Unix ms).',
+      },
+      {
+        name: 'zoomable',
+        type: 'boolean',
+        default: 'false',
+        description: 'Drag zoom, Ctrl/Cmd+wheel, Shift+drag pan, dbl-click reset.',
+      },
+      {
+        name: 'domain',
+        type: 'CandleTimeDomain | null',
+        description: 'Controlled viewport; use with v-model:domain to sync charts.',
+      },
+      {
+        name: 'showVolume',
+        type: 'boolean',
+        default: 'false',
+        description: 'Renders volume histogram under price pane.',
+      },
+      {
+        name: 'showBrush',
+        type: 'boolean',
+        default: 'false',
+        description: 'Time navigator under the plot.',
+      },
+      {
+        name: 'showCrosshair',
+        type: 'boolean',
+        default: 'true',
+        description: 'Pointer crosshair with magnetic X to bar center.',
+      },
+      {
+        name: 'candleStyle',
+        type: "'candle' | 'hollow' | 'bar'",
+        default: "'candle'",
+        description: 'Bodies, hollow candles, or OHLC ticks.',
+      },
+      {
+        name: 'priceDisplayMode',
+        type: "'absolute' | 'percent' | 'indexed'",
+        default: "'absolute'",
+        description: 'Rebase visible closes for comparison views.',
+      },
+      {
+        name: 'yScale',
+        type: "'linear' | 'log' | 'symlog'",
+        default: "'linear'",
+        description: 'Price scale mapping.',
+      },
+      {
+        name: 'maxDrawBars',
+        type: 'number',
+        default: '512',
+        description: 'Cap aggregated buckets in the visible window.',
+      },
+      {
+        name: 'drawings',
+        type: 'CandleDrawing[]',
+        default: '[]',
+        description: 'Persisted overlays in raw price/time space.',
+      },
+      {
+        name: 'drawingTool',
+        type: 'CandleDrawingTool | null',
+        default: 'null',
+        description: 'When set, drag creates drawings instead of zoom box.',
+      },
+      {
+        name: 'theme',
+        type: 'ChartTheme',
+        description: 'Built-in theme tokens (high-contrast, print, colorblind-safe).',
+      },
+      {
+        name: 'dark',
+        type: 'boolean',
+        description: 'Force dark palette; otherwise follows container.',
+      },
     ],
     events: [
-      { name: 'update:domain', payload: 'CandleTimeDomain', description: 'Emitted when the visible time window changes.' },
-      { name: 'zoom', payload: 'CandleZoomRange', description: 'Fractional indices + time window after zoom operations.' },
-      { name: 'barClick', payload: 'CandleClickPayload', description: 'Keyboard/pointer selection of a bar.' },
-      { name: 'update:drawings', payload: 'CandleDrawing[]', description: 'Emitted when drawings are edited in tool mode.' },
+      {
+        name: 'update:domain',
+        payload: 'CandleTimeDomain',
+        description: 'Emitted when the visible time window changes.',
+      },
+      {
+        name: 'zoom',
+        payload: 'CandleZoomRange',
+        description: 'Fractional indices + time window after zoom operations.',
+      },
+      {
+        name: 'barClick',
+        payload: 'CandleClickPayload',
+        description: 'Keyboard/pointer selection of a bar.',
+      },
+      {
+        name: 'update:drawings',
+        payload: 'CandleDrawing[]',
+        description: 'Emitted when drawings are edited in tool mode.',
+      },
     ],
     models: [
-      { name: 'domain', type: 'CandleTimeDomain | null', description: 'v-model for synchronized time windows across panes.' },
+      {
+        name: 'domain',
+        type: 'CandleTimeDomain | null',
+        description: 'v-model for synchronized time windows across panes.',
+      },
     ],
     notes: [
       'Expose `CandlePlotMetrics` via component ref for custom SVG overlays aligned to price/time space.',
@@ -80,28 +166,83 @@ const bars = ref<CandleBar[]>([])
   },
   'narduk-line-chart': {
     title: 'NardukLineChart',
-    summary: 'Multi-series line chart with optional area fill, dual Y axes, category zoom, annotations, and legend toggles.',
+    summary:
+      'Multi-series line chart with optional area fill, dual Y axes, category zoom, annotations, and legend toggles.',
     importExamples: ["import { NardukLineChart } from '@narduk-enterprises/narduk-charts'"],
     props: [
-      { name: 'series', type: 'ChartSeries[]', description: 'Per-series numeric arrays aligned to `labels`.' },
+      {
+        name: 'series',
+        type: 'ChartSeries[]',
+        description: 'Per-series numeric arrays aligned to `labels`.',
+      },
       { name: 'labels', type: 'string[]', description: 'Category axis labels.' },
-      { name: 'dualYAxis', type: 'boolean', default: 'false', description: 'Right axis when series use `yAxis: \'secondary\'`.' },
-      { name: 'zoomable', type: 'boolean', default: 'false', description: 'Drag zoom, wheel, shift-pan, dbl-click reset.' },
-      { name: 'zoomAutoY', type: 'boolean', default: 'true', description: 'Rescale Y to visible X window when zooming.' },
-      { name: 'showArea', type: 'boolean', default: 'false', description: 'Fill to baseline under lines.' },
-      { name: 'annotations', type: 'ChartLineAnnotation[]', description: 'vlines, labeled points, and text labels.' },
+      {
+        name: 'dualYAxis',
+        type: 'boolean',
+        default: 'false',
+        description: "Right axis when series use `yAxis: 'secondary'`.",
+      },
+      {
+        name: 'zoomable',
+        type: 'boolean',
+        default: 'false',
+        description: 'Drag zoom, wheel, shift-pan, dbl-click reset.',
+      },
+      {
+        name: 'zoomAutoY',
+        type: 'boolean',
+        default: 'true',
+        description: 'Rescale Y to visible X window when zooming.',
+      },
+      {
+        name: 'showArea',
+        type: 'boolean',
+        default: 'false',
+        description: 'Fill to baseline under lines.',
+      },
+      {
+        name: 'annotations',
+        type: 'ChartLineAnnotation[]',
+        description: 'vlines, labeled points, and text labels.',
+      },
       { name: 'yBands', type: 'ChartYBand[]', description: 'Horizontal bands behind series.' },
-      { name: 'referenceLines', type: 'ChartReferenceLine[]', description: 'Horizontal guides with optional labels.' },
-      { name: 'maxRenderPoints', type: 'number', description: 'Category decimation cap for large static datasets.' },
-      { name: 'yScale', type: 'ChartYScaleMode', default: "'linear'", description: 'Primary axis scale.' },
-      { name: 'yScaleSecondary', type: 'ChartYScaleMode', default: "'linear'", description: 'Secondary axis when dualYAxis.' },
+      {
+        name: 'referenceLines',
+        type: 'ChartReferenceLine[]',
+        description: 'Horizontal guides with optional labels.',
+      },
+      {
+        name: 'maxRenderPoints',
+        type: 'number',
+        description: 'Category decimation cap for large static datasets.',
+      },
+      {
+        name: 'yScale',
+        type: 'ChartYScaleMode',
+        default: "'linear'",
+        description: 'Primary axis scale.',
+      },
+      {
+        name: 'yScaleSecondary',
+        type: 'ChartYScaleMode',
+        default: "'linear'",
+        description: 'Secondary axis when dualYAxis.',
+      },
     ],
     events: [
-      { name: 'pointClick', payload: 'LinePointClickPayload', description: 'Click on a category column.' },
+      {
+        name: 'pointClick',
+        payload: 'LinePointClickPayload',
+        description: 'Click on a category column.',
+      },
       { name: 'zoom', payload: 'LineZoomRange', description: 'Fractional category index window.' },
     ],
     models: [
-      { name: 'xWindow', type: '{ start: number; end: number } | undefined', description: 'Optional v-model for synced X with candle indices.' },
+      {
+        name: 'xWindow',
+        type: '{ start: number; end: number } | undefined',
+        description: 'Optional v-model for synced X with candle indices.',
+      },
     ],
     slots: [
       { name: 'tooltip', description: 'Replace floating tooltip body.' },
@@ -122,20 +263,46 @@ const bars = ref<CandleBar[]>([])
   },
   'narduk-bar-chart': {
     title: 'NardukBarChart',
-    summary: 'Grouped or stacked vertical bars with percent stacking, reference lines, bands, and vline annotations.',
+    summary:
+      'Grouped or stacked vertical bars with percent stacking, reference lines, bands, and vline annotations.',
     importExamples: ["import { NardukBarChart } from '@narduk-enterprises/narduk-charts'"],
     props: [
       { name: 'series', type: 'ChartSeries[]', description: 'Aligned to `labels`.' },
       { name: 'labels', type: 'string[]', description: 'Category labels.' },
-      { name: 'stacked', type: 'boolean', default: 'false', description: 'Stack series per category.' },
-      { name: 'stackedPercent', type: 'boolean', default: 'false', description: 'Normalize stacks to 100%.' },
+      {
+        name: 'stacked',
+        type: 'boolean',
+        default: 'false',
+        description: 'Stack series per category.',
+      },
+      {
+        name: 'stackedPercent',
+        type: 'boolean',
+        default: 'false',
+        description: 'Normalize stacks to 100%.',
+      },
       { name: 'barRadius', type: 'number', default: '4', description: 'Corner radius for bars.' },
-      { name: 'yScale', type: 'ChartYScaleMode', default: "'linear'", description: 'Y mapping for counts/values.' },
+      {
+        name: 'yScale',
+        type: 'ChartYScaleMode',
+        default: "'linear'",
+        description: 'Y mapping for counts/values.',
+      },
       { name: 'referenceLines', type: 'ChartReferenceLine[]', description: 'Horizontal guides.' },
       { name: 'yBands', type: 'ChartYBand[]', description: 'Background bands.' },
-      { name: 'annotations', type: 'ChartLineAnnotation[]', description: '`vline` entries align to category centers.' },
+      {
+        name: 'annotations',
+        type: 'ChartLineAnnotation[]',
+        description: '`vline` entries align to category centers.',
+      },
     ],
-    events: [{ name: 'barClick', payload: 'BarClickPayload', description: 'Pointer/keyboard activation of a bar segment.' }],
+    events: [
+      {
+        name: 'barClick',
+        payload: 'BarClickPayload',
+        description: 'Pointer/keyboard activation of a bar segment.',
+      },
+    ],
     slots: [
       { name: 'tooltip', description: 'Custom tooltip.' },
       { name: 'legend-item', description: 'Custom legend rows.' },
@@ -156,10 +323,17 @@ const bars = ref<CandleBar[]>([])
     props: [
       { name: 'data', type: 'PieDataItem[]', description: 'Label + value pairs.' },
       { name: 'donut', type: 'boolean', default: 'false', description: 'Cut center hole.' },
-      { name: 'innerRadius', type: 'number', default: '0.6', description: 'Donut hole size as fraction of radius.' },
+      {
+        name: 'innerRadius',
+        type: 'number',
+        default: '0.6',
+        description: 'Donut hole size as fraction of radius.',
+      },
       { name: 'showLabels', type: 'boolean', default: 'true', description: 'Slice value labels.' },
     ],
-    events: [{ name: 'sliceClick', payload: 'PieSliceClickPayload', description: 'Click a slice.' }],
+    events: [
+      { name: 'sliceClick', payload: 'PieSliceClickPayload', description: 'Click a slice.' },
+    ],
     slots: [
       { name: 'tooltip', description: 'Custom tooltip.' },
       { name: 'legend-item', description: 'Custom legend rows.' },
@@ -170,11 +344,21 @@ const bars = ref<CandleBar[]>([])
   },
   'narduk-scatter-chart': {
     title: 'NardukScatterChart',
-    summary: 'Numeric scatter plot with linear scales, multi-series coloring, and point hit targets.',
+    summary:
+      'Numeric scatter plot with linear scales, multi-series coloring, and point hit targets.',
     importExamples: ["import { NardukScatterChart } from '@narduk-enterprises/narduk-charts'"],
     props: [
-      { name: 'series', type: 'ScatterSeries[]', description: 'Named clouds of `{ x, y, label? }` points.' },
-      { name: 'pointRadius', type: 'number', default: '4', description: 'Hit target and glyph radius.' },
+      {
+        name: 'series',
+        type: 'ScatterSeries[]',
+        description: 'Named clouds of `{ x, y, label? }` points.',
+      },
+      {
+        name: 'pointRadius',
+        type: 'number',
+        default: '4',
+        description: 'Hit target and glyph radius.',
+      },
     ],
     events: [
       {
@@ -193,7 +377,11 @@ const bars = ref<CandleBar[]>([])
     props: [
       { name: 'values', type: 'number[]', description: 'Raw samples when `bins` is not provided.' },
       { name: 'binCount', type: 'number', default: '8', description: 'Automatic binning count.' },
-      { name: 'bins', type: 'HistogramBin[]', description: 'Optional explicit `[start,end,count]` buckets.' },
+      {
+        name: 'bins',
+        type: 'HistogramBin[]',
+        description: 'Optional explicit `[start,end,count]` buckets.',
+      },
       { name: 'barColor', type: 'string', description: 'Override fill for bars.' },
     ],
     example: `<NardukHistogramChart :values="dailyReturns" :bin-count="14" :height="280" />`,
@@ -205,7 +393,11 @@ const bars = ref<CandleBar[]>([])
       'Thin layout wrapper that forwards `v-model:domain` to slot props so stacked candle/line panes share one time window.',
     importExamples: ["import { NardukChartStack } from '@narduk-enterprises/narduk-charts'"],
     models: [
-      { name: 'domain', type: 'CandleTimeDomain | null', description: 'Shared candle time window for children.' },
+      {
+        name: 'domain',
+        type: 'CandleTimeDomain | null',
+        description: 'Shared candle time window for children.',
+      },
     ],
     notes: [
       'Does not render charts itself: place `NardukCandleChart` / `NardukLineChart` rows inside the default slot.',
@@ -224,7 +416,8 @@ const bars = ref<CandleBar[]>([])
   },
   'composables-streaming': {
     title: 'Streaming composables',
-    summary: '`useStreamingSeries` and `useCandleStream` cap update rates and maintain rolling buffers for live dashboards.',
+    summary:
+      '`useStreamingSeries` and `useCandleStream` cap update rates and maintain rolling buffers for live dashboards.',
     importExamples: [
       "import { useStreamingSeries, useCandleStream } from '@narduk-enterprises/narduk-charts'",
     ],
@@ -251,7 +444,9 @@ const bars = ref<CandleBar[]>([])
     <NardukLineChart ... />
   </div>
 </template>`,
-    relatedRoutes: [{ label: 'Export & fullscreen', to: '/showcase/capabilities/export-fullscreen' }],
+    relatedRoutes: [
+      { label: 'Export & fullscreen', to: '/showcase/capabilities/export-fullscreen' },
+    ],
   },
   'utilities-export': {
     title: 'Export helpers',
@@ -267,7 +462,8 @@ const bars = ref<CandleBar[]>([])
   },
   'utilities-math': {
     title: 'Math & candle utilities',
-    summary: 'Pure functions for decimation, histogram bins, candle aggregation, and time/index mapping.',
+    summary:
+      'Pure functions for decimation, histogram bins, candle aggregation, and time/index mapping.',
     importExamples: [
       "import {\n  decimateCategoryData,\n  computeHistogramBins,\n  aggregateCandles,\n  aggregateCandlesToResolution,\n  candleTimeAtIndex,\n  candleIndexAtTime,\n} from '@narduk-enterprises/narduk-charts'",
     ],
@@ -281,7 +477,7 @@ const bars = ref<CandleBar[]>([])
       { label: 'Performance docs', to: '/docs/performance' },
     ],
   },
-  'studies': {
+  studies: {
     title: 'Studies (indicators)',
     summary:
       'Pure TypeScript helpers (`sma`, `ema`, `vwap`, `bollinger`, `rsi`, `macd`) shipped from `@narduk-enterprises/narduk-charts/studies` for overlaying on line or candle data.',
@@ -294,7 +490,8 @@ const bars = ref<CandleBar[]>([])
   },
   'performance-budget': {
     title: 'Render budget helpers',
-    summary: '`recommendMaxDrawBars` and `suggestCandleRenderStrategy` translate plot width + dataset size into safe draw caps.',
+    summary:
+      '`recommendMaxDrawBars` and `suggestCandleRenderStrategy` translate plot width + dataset size into safe draw caps.',
     importExamples: [
       "import { recommendMaxDrawBars, suggestCandleRenderStrategy } from '@narduk-enterprises/narduk-charts'",
     ],
@@ -311,7 +508,11 @@ export const apiDocIndex = [
   { slug: 'narduk-scatter-chart', label: 'NardukScatterChart', group: 'Components' },
   { slug: 'narduk-histogram-chart', label: 'NardukHistogramChart', group: 'Components' },
   { slug: 'narduk-chart-stack', label: 'NardukChartStack', group: 'Components' },
-  { slug: 'composables-streaming', label: 'useStreamingSeries / useCandleStream', group: 'Composables' },
+  {
+    slug: 'composables-streaming',
+    label: 'useStreamingSeries / useCandleStream',
+    group: 'Composables',
+  },
   { slug: 'composables-fullscreen', label: 'useChartFullscreen', group: 'Composables' },
   { slug: 'utilities-export', label: 'Export helpers', group: 'Utilities' },
   { slug: 'utilities-math', label: 'Math & candles', group: 'Utilities' },

@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { LIBRARY_GITHUB_HREF, SITE_REPO_HREF, capabilityNav, chartFamilies, docsNav } from '~/data/site'
+import {
+  LIBRARY_GITHUB_HREF,
+  SITE_REPO_HREF,
+  capabilityNav,
+  chartFamilies,
+  docsNav,
+} from '~/data/site'
 
 const config = useRuntimeConfig()
 const appName = config.public.appName || 'Narduk Charts'
@@ -17,7 +23,8 @@ const year = new Date().getFullYear()
             {{ appName }}
           </div>
           <p class="text-sm leading-relaxed text-muted">
-            SVG charting for Vue 3 trading interfaces: precise axes, synced panes, and explicit export surfaces.
+            SVG charting for Vue 3 trading interfaces: precise axes, synced panes, and explicit
+            export surfaces.
           </p>
         </div>
         <div>
@@ -49,7 +56,9 @@ const year = new Date().getFullYear()
           </ul>
         </div>
         <div>
-          <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-muted">Docs &amp; code</p>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-muted">
+            Docs &amp; code
+          </p>
           <ul class="space-y-2 text-sm">
             <li v-for="p in docsNav.slice(0, 8)" :key="p.to">
               <NuxtLink

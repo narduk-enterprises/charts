@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import {
-  NardukCandleChart,
-  NardukChartStack,
-} from '@narduk-enterprises/narduk-charts'
+import { NardukCandleChart, NardukChartStack } from '@narduk-enterprises/narduk-charts'
 import type { CandleTimeDomain } from '@narduk-enterprises/narduk-charts'
 import { demoCandles } from '~/lib/demo/candles'
 
@@ -55,13 +52,12 @@ const code = [
         { label: 'Chart stack', to: '/showcase/chart-stack' },
       ]"
     />
-    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">
-      Chart stack
-    </h1>
+    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Chart stack</h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
       Use <code class="text-primary">NardukChartStack</code> to hoist a single
-      <code class="text-primary">v-model:domain</code> across vertically stacked panes. Pair the bottom pane with
-      <code class="text-primary">NardukLineChart</code> via fractional <code class="text-primary">x-window</code> mapping when showing studies.
+      <code class="text-primary">v-model:domain</code> across vertically stacked panes. Pair the
+      bottom pane with <code class="text-primary">NardukLineChart</code> via fractional
+      <code class="text-primary">x-window</code> mapping when showing studies.
     </p>
 
     <LiveDemoPane
@@ -100,8 +96,12 @@ const code = [
       <CodeBlock :code="code" context="showcase-stack" />
     </div>
     <div class="mt-6 flex flex-wrap gap-2">
-      <UButton to="/docs/api/narduk-chart-stack" color="primary" variant="soft">API reference</UButton>
-      <UButton to="/showcase/capabilities/synchronized" color="neutral" variant="outline">RSI + candle sync</UButton>
+      <UButton to="/docs/api/narduk-chart-stack" color="primary" variant="soft"
+        >API reference</UButton
+      >
+      <UButton to="/showcase/capabilities/synchronized" color="neutral" variant="outline"
+        >RSI + candle sync</UButton
+      >
     </div>
   </UContainer>
 </template>

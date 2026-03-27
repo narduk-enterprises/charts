@@ -30,17 +30,17 @@ const groups = computed(() => {
 
 <template>
   <article class="prose prose-sm max-w-none dark:prose-invert">
-    <h1 class="text-3xl font-semibold tracking-tight text-highlighted">
-      API reference
-    </h1>
+    <h1 class="text-3xl font-semibold tracking-tight text-highlighted">API reference</h1>
     <p class="lead text-muted">
       Generated from the locked public surface of
       <ULink
         to="https://github.com/narduk-enterprises/narduk-charts"
         target="_blank"
         class="text-primary"
-      >@narduk-enterprises/narduk-charts</ULink>
-      (<code>src/index.ts</code>). Each entry includes props, events, models, and a copy-ready example.
+        >@narduk-enterprises/narduk-charts</ULink
+      >
+      (<code>src/index.ts</code>). Each entry includes props, events, models, and a copy-ready
+      example.
     </p>
 
     <div v-for="[name, rows] in groups" :key="name" class="not-prose mb-10">

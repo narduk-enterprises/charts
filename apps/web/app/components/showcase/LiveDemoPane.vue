@@ -19,7 +19,9 @@ defineProps<{
       <ClientOnly>
         <slot />
         <template #fallback>
-          <div class="flex h-64 items-center justify-center rounded-lg border border-dashed border-default/60 text-xs text-muted">
+          <div
+            class="flex h-64 items-center justify-center rounded-lg border border-dashed border-default/60 text-xs text-muted"
+          >
             Loading chart…
           </div>
         </template>

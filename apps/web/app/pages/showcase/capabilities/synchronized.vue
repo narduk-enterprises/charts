@@ -30,13 +30,17 @@ onMounted(() => captureShowcaseView('capabilities/synchronized'))
 const bars = ref(demoCandles(200, { fixedAnchor: Date.UTC(2026, 1, 8, 15, 0, 0) }))
 const sharedDomain = ref<CandleTimeDomain | null>(null)
 
-const rsiLabels = computed(() => bars.value.map(b => new Date(b.t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })))
+const rsiLabels = computed(() =>
+  bars.value.map((b) =>
+    new Date(b.t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }),
+  ),
+)
 
 const rsiSeries = computed<ChartSeries[]>(() => [
   {
     name: 'RSI(14)',
     data: rsi(
-      bars.value.map(b => b.c),
+      bars.value.map((b) => b.c),
       14,
     ),
   },
@@ -74,8 +78,9 @@ const lineXWindow = computed({
     </h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
       <code class="text-primary">NardukChartStack</code> holds one
-      <code class="text-primary">v-model:domain</code>. The candle chart drives time in milliseconds; the RSI row binds
-      <code class="text-primary">v-model:x-window</code> through <code class="text-primary">candleIndexAtTime</code> /
+      <code class="text-primary">v-model:domain</code>. The candle chart drives time in
+      milliseconds; the RSI row binds <code class="text-primary">v-model:x-window</code> through
+      <code class="text-primary">candleIndexAtTime</code> /
       <code class="text-primary">candleTimeAtIndex</code> so both panes stay aligned.
     </p>
 
@@ -113,7 +118,9 @@ const lineXWindow = computed({
 
     <div class="mt-10 flex flex-wrap gap-2">
       <UButton to="/docs/realtime" color="neutral" variant="outline">Realtime patterns</UButton>
-      <UButton to="/docs/api/narduk-chart-stack" color="primary" variant="soft">Chart stack API</UButton>
+      <UButton to="/docs/api/narduk-chart-stack" color="primary" variant="soft"
+        >Chart stack API</UButton
+      >
     </div>
   </UContainer>
 </template>

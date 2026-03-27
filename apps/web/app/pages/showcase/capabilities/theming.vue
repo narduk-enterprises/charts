@@ -41,8 +41,10 @@ const code = `<NardukLineChart
       Themes &amp; contrast modes
     </h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
-      Pass <code class="text-primary">theme</code> for <code class="text-primary">default | high-contrast | print | colorblind-safe</code> and combine with the site color mode or an explicit
-      <code class="text-primary">dark</code> boolean for embedded widgets.
+      Pass <code class="text-primary">theme</code> for
+      <code class="text-primary">default | high-contrast | print | colorblind-safe</code> and
+      combine with the site color mode or an explicit <code class="text-primary">dark</code> boolean
+      for embedded widgets.
     </p>
 
     <div class="mt-8 grid gap-6 lg:grid-cols-2">
@@ -56,7 +58,10 @@ const code = `<NardukLineChart
           :dark="false"
         />
       </LiveDemoPane>
-      <LiveDemoPane title="High contrast" description="Stronger strokes for compliance desks and war rooms.">
+      <LiveDemoPane
+        title="High contrast"
+        description="Stronger strokes for compliance desks and war rooms."
+      >
         <NardukLineChart
           class="w-full min-w-0"
           :series="series"

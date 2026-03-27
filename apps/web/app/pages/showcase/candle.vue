@@ -55,13 +55,17 @@ const code = computed(
         Candlestick &amp; OHLC
       </h1>
       <p class="mt-3 max-w-3xl text-base leading-relaxed text-muted">
-        Time-indexed OHLCV with draggable zoom, optional volume and brush navigator, magnetic crosshair, and
-        TradingView-style hollow candles or classic OHLC ticks. Controlled <code class="text-primary">v-model:domain</code> enables multi-pane sync.
+        Time-indexed OHLCV with draggable zoom, optional volume and brush navigator, magnetic
+        crosshair, and TradingView-style hollow candles or classic OHLC ticks. Controlled
+        <code class="text-primary">v-model:domain</code> enables multi-pane sync.
       </p>
 
       <div class="mt-8 flex flex-col gap-4">
         <div class="flex flex-wrap gap-2">
-          <span class="w-full text-xs font-semibold uppercase tracking-wide text-muted sm:w-auto sm:py-2">Bar style</span>
+          <span
+            class="w-full text-xs font-semibold uppercase tracking-wide text-muted sm:w-auto sm:py-2"
+            >Bar style</span
+          >
           <UButton
             v-for="opt in [
               { id: 'candle' as const, label: 'Candle' },
@@ -78,7 +82,10 @@ const code = computed(
           </UButton>
         </div>
         <div class="flex flex-wrap gap-2">
-          <span class="w-full text-xs font-semibold uppercase tracking-wide text-muted sm:w-auto sm:py-2">Price scale</span>
+          <span
+            class="w-full text-xs font-semibold uppercase tracking-wide text-muted sm:w-auto sm:py-2"
+            >Price scale</span
+          >
           <UButton
             v-for="opt in [
               { id: 'absolute' as const, label: 'Absolute' },

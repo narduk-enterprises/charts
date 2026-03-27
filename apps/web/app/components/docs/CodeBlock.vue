@@ -15,10 +15,11 @@ async function copy() {
     copied.value = true
     captureCodeCopy(props.context)
     if (typeof globalThis.setTimeout === 'function') {
-      globalThis.setTimeout(() => { copied.value = false }, 1600)
+      globalThis.setTimeout(() => {
+        copied.value = false
+      }, 1600)
     }
-  }
-  catch {
+  } catch {
     copied.value = false
   }
 }
@@ -36,6 +37,8 @@ async function copy() {
     >
       {{ copied ? 'Copied' : 'Copy' }}
     </UButton>
-    <pre class="max-h-[28rem] overflow-auto p-4 text-xs leading-relaxed text-highlighted sm:text-sm"><code>{{ code }}</code></pre>
+    <pre
+      class="max-h-[28rem] overflow-auto p-4 text-xs leading-relaxed text-highlighted sm:text-sm"
+    ><code>{{ code }}</code></pre>
   </div>
 </template>

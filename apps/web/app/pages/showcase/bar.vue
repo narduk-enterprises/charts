@@ -5,7 +5,8 @@ import { demoMonthlyBar } from '~/lib/demo/series'
 definePageMeta({ layout: 'marketing' })
 
 const pageTitle = 'Bar chart showcase — Narduk Charts'
-const pageDescription = 'Grouped and stacked bars with percent mode, reference lines, and bands for desk reporting.'
+const pageDescription =
+  'Grouped and stacked bars with percent mode, reference lines, and bands for desk reporting.'
 
 useSeo({
   title: pageTitle,
@@ -42,11 +43,10 @@ const code = computed(
         { label: 'Bar', to: '/showcase/bar' },
       ]"
     />
-    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">
-      Bar charts
-    </h1>
+    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Bar charts</h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
-      Vertical bars for desk P&amp;L components, fee breakdowns, or basket weights. Toggle stacked and 100% mode to emphasize composition vs absolute contribution.
+      Vertical bars for desk P&amp;L components, fee breakdowns, or basket weights. Toggle stacked
+      and 100% mode to emphasize composition vs absolute contribution.
     </p>
 
     <div class="mt-6 flex flex-wrap gap-4">
@@ -54,7 +54,11 @@ const code = computed(
       <UCheckbox v-model="stackedPercent" :disabled="!stacked" label="100% stack" />
     </div>
 
-    <LiveDemoPane class="mt-6" title="Revenue vs hedge drag" description="Two series per month; enable stack modes to compare mix.">
+    <LiveDemoPane
+      class="mt-6"
+      title="Revenue vs hedge drag"
+      description="Two series per month; enable stack modes to compare mix."
+    >
       <NardukBarChart
         chart-title="Monthly desk economics"
         class="w-full min-w-0"
@@ -72,6 +76,8 @@ const code = computed(
       <h2 class="mb-3 text-lg font-semibold text-highlighted">Example</h2>
       <CodeBlock :code="code" context="showcase-bar" />
     </div>
-    <UButton class="mt-6" to="/docs/api/narduk-bar-chart" color="primary" variant="soft">API reference</UButton>
+    <UButton class="mt-6" to="/docs/api/narduk-bar-chart" color="primary" variant="soft"
+      >API reference</UButton
+    >
   </UContainer>
 </template>

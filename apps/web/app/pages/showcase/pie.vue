@@ -43,14 +43,19 @@ const code = computed(
       Pie &amp; donut
     </h1>
     <p class="mt-3 max-w-3xl text-base text-muted">
-      Allocation views with crisp SVG arcs, keyboard-accessible legend toggles, and optional donut framing for dashboard tiles.
+      Allocation views with crisp SVG arcs, keyboard-accessible legend toggles, and optional donut
+      framing for dashboard tiles.
     </p>
 
     <div class="mt-6">
       <UCheckbox v-model="donut" label="Donut mode" />
     </div>
 
-    <LiveDemoPane class="mt-6" title="Model portfolio sleeve" description="Synthetic sector weights for demonstration.">
+    <LiveDemoPane
+      class="mt-6"
+      title="Model portfolio sleeve"
+      description="Synthetic sector weights for demonstration."
+    >
       <NardukPieChart
         chart-title="Sector allocation"
         class="w-full min-w-0"
@@ -65,6 +70,8 @@ const code = computed(
       <h2 class="mb-3 text-lg font-semibold text-highlighted">Example</h2>
       <CodeBlock :code="code" context="showcase-pie" />
     </div>
-    <UButton class="mt-6" to="/docs/api/narduk-pie-chart" color="primary" variant="soft">API reference</UButton>
+    <UButton class="mt-6" to="/docs/api/narduk-pie-chart" color="primary" variant="soft"
+      >API reference</UButton
+    >
   </UContainer>
 </template>

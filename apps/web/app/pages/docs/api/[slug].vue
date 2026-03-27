@@ -109,7 +109,10 @@ onMounted(() => captureApiView(slug))
       </ul>
     </div>
 
-    <div v-if="doc.notes?.length" class="mt-8 rounded-lg border border-warning/30 bg-warning/5 p-4 text-sm text-muted">
+    <div
+      v-if="doc.notes?.length"
+      class="mt-8 rounded-lg border border-warning/30 bg-warning/5 p-4 text-sm text-muted"
+    >
       <p class="font-semibold text-highlighted">Notes</p>
       <ul class="mt-2 list-disc space-y-1 pl-5">
         <li v-for="(n, i) in doc.notes" :key="i">{{ n }}</li>

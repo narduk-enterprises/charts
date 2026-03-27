@@ -24,11 +24,10 @@ useWebPageSchema({ name: pageTitle, description: pageDescription })
         { label: 'Capabilities', to: '/showcase/capabilities' },
       ]"
     />
-    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">
-      Capabilities
-    </h1>
+    <h1 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Capabilities</h1>
     <p class="mt-3 max-w-2xl text-base text-muted">
-      These tours focus on behaviors that span multiple chart families — the same APIs you wire in production terminals.
+      These tours focus on behaviors that span multiple chart families — the same APIs you wire in
+      production terminals.
     </p>
 
     <div class="mt-8 grid gap-3 sm:grid-cols-2">
