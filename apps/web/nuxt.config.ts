@@ -6,10 +6,46 @@ const localNuxtPort = Number(process.env.NUXT_PORT || 3000)
 const localAppUrl = `http://localhost:${Number.isFinite(localNuxtPort) ? localNuxtPort : 3000}`
 const siteUrl = process.env.SITE_URL || ''
 
+const appBackendPreset =
+  process.env.APP_BACKEND_PRESET === 'managed-supabase' ? 'managed-supabase' : 'default'
+const configuredAuthBackend = process.env.AUTH_BACKEND
+const supabaseUrl = process.env.AUTH_AUTHORITY_URL || process.env.SUPABASE_URL || ''
+const supabasePublishableKey =
+  process.env.SUPABASE_PUBLISHABLE_KEY ||
+  process.env.SUPABASE_ANON_KEY ||
+  process.env.SUPABASE_AUTH_ANON_KEY ||
+  ''
+const supabaseServiceRoleKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_AUTH_SERVICE_ROLE_KEY || ''
+const authBackend =
+  configuredAuthBackend === 'supabase' || configuredAuthBackend === 'local'
+    ? configuredAuthBackend
+    : supabaseUrl && supabasePublishableKey
+      ? 'supabase'
+      : 'local'
+const authAuthorityUrl = supabaseUrl
+const appOrmTablesEntry =
+  process.env.NUXT_DATABASE_BACKEND === 'postgres'
+    ? './server/database/pg-app-schema.ts'
+    : './server/database/app-schema.ts'
+
+function parseAuthProviders(value: string | undefined) {
+  return (value || 'apple,email')
+    .split(',')
+    .map((provider) => provider.trim().toLowerCase())
+    .filter((provider, index, providers) => provider && providers.indexOf(provider) === index)
+}
+
+const authProviders =
+  authBackend === 'supabase' ? parseAuthProviders(process.env.AUTH_PROVIDERS) : ['email']
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Extend the published Narduk Nuxt Layer
   extends: ['@narduk-enterprises/narduk-nuxt-template-layer'],
+
+  alias: {
+    '#server/app-orm-tables': fileURLToPath(new URL(appOrmTablesEntry, import.meta.url)),
+  },
 
   css: ['@narduk-enterprises/narduk-charts/style.css'],
 
@@ -34,6 +70,16 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    appBackendPreset,
+    authBackend,
+    authAuthorityUrl,
+    authAnonKey: supabasePublishableKey,
+    authServiceRoleKey: supabaseServiceRoleKey,
+    authStorageKey: process.env.AUTH_STORAGE_KEY || 'web-auth',
+    turnstileSecretKey: process.env.TURNSTILE_SECRET_KEY || '',
+    supabaseUrl,
+    supabasePublishableKey,
+    supabaseServiceRoleKey,
     posthogOwnerDistinctId: process.env.POSTHOG_OWNER_DISTINCT_ID || '',
     // Server-only (admin API routes)
     googleServiceAccountKey: process.env.GSC_SERVICE_ACCOUNT_JSON || '',
