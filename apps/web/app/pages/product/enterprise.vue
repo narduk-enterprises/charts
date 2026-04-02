@@ -23,8 +23,8 @@ useWebPageSchema({ name: pageTitle, description: pageDescription })
     <div class="mt-10 max-w-3xl space-y-4 text-muted">
       <p>
         <strong class="text-highlighted">Licensing.</strong>
-        <code class="text-primary">@narduk-enterprises/narduk-charts</code> is MIT-licensed. Forks and
-        private mirrors are expected; attribute the license file in distributions you ship.
+        <code class="text-primary">@narduk-enterprises/narduk-charts</code> is MIT-licensed. Forks
+        and private mirrors are expected; attribute the license file in distributions you ship.
       </p>
       <p>
         <strong class="text-highlighted">Scope clarity.</strong> Core charts exclude broker-specific
@@ -43,10 +43,10 @@ useWebPageSchema({ name: pageTitle, description: pageDescription })
         versions in lockfiles and read release notes for interaction contract tweaks.
       </p>
       <p>
-        <strong class="text-highlighted">Support &amp; SLAs.</strong> Community issues and discussions
-        run on GitHub. Dedicated support tiers, custom SLAs, and integration reviews are available
-        through Narduk Enterprises for qualifying desks—use your procurement channel or site contact
-        to scope workload, response times, and security questionnaires.
+        <strong class="text-highlighted">Support &amp; SLAs.</strong> Community issues and
+        discussions run on GitHub. Dedicated support tiers, custom SLAs, and integration reviews are
+        available through Narduk Enterprises for qualifying desks—use your procurement channel or
+        site contact to scope workload, response times, and security questionnaires.
       </p>
       <p>
         <strong class="text-highlighted">Typical architecture.</strong> Browser or embedded WebView

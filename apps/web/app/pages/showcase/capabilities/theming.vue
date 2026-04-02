@@ -58,7 +58,10 @@ const code = `<NardukLineChart
           :dark="false"
         />
       </LiveDemoPane>
-      <LiveDemoPane title="Default + dark" description="Same tokens with dark-friendly backgrounds.">
+      <LiveDemoPane
+        title="Default + dark"
+        description="Same tokens with dark-friendly backgrounds."
+      >
         <NardukLineChart
           class="w-full min-w-0"
           :series="series"
@@ -81,10 +84,7 @@ const code = `<NardukLineChart
           :dark="true"
         />
       </LiveDemoPane>
-      <LiveDemoPane
-        title="Print"
-        description="High legibility for PDFs and monochrome printers."
-      >
+      <LiveDemoPane title="Print" description="High legibility for PDFs and monochrome printers.">
         <NardukLineChart
           class="w-full min-w-0"
           :series="series"

@@ -8,12 +8,7 @@ import {
   type StonxStreamInbound,
 } from '~/utils/stonxStream'
 
-export type StonxStreamStatus =
-  | 'idle'
-  | 'connecting'
-  | 'connected'
-  | 'reconnecting'
-  | 'offline'
+export type StonxStreamStatus = 'idle' | 'connecting' | 'connected' | 'reconnecting' | 'offline'
 
 export interface UseStonxStreamOptions {
   url: string
@@ -68,8 +63,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
       if (ws && ws.readyState === WebSocket.OPEN) {
         try {
           ws.close(4000, 'stale')
-        }
-        catch {
+        } catch {
           /* ignore */
         }
       }
@@ -82,8 +76,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
       if (ws?.readyState === WebSocket.OPEN) {
         try {
           ws.send(stonxPingJson())
-        }
-        catch {
+        } catch {
           /* ignore */
         }
       }
@@ -114,8 +107,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
     if (ws) {
       try {
         ws.close()
-      }
-      catch {
+      } catch {
         /* ignore */
       }
       ws = null
@@ -124,8 +116,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
     status.value = reconnectAttempt === 0 ? 'connecting' : 'reconnecting'
     try {
       ws = new WebSocket(options.url)
-    }
-    catch {
+    } catch {
       status.value = 'offline'
       scheduleReconnect()
       return
@@ -135,8 +126,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
       sessionHandshakeDone = false
       try {
         ws!.send(stonxSubscribeJson(options.channels))
-      }
-      catch {
+      } catch {
         /* ignore */
       }
       startPing()
@@ -148,8 +138,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
       let parsed: unknown
       try {
         parsed = JSON.parse(event.data as string)
-      }
-      catch {
+      } catch {
         return
       }
       const msg = parseStonxStreamMessage(parsed)
@@ -162,8 +151,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
           sessionHandshakeDone = true
           options.onConnected?.()
         }
-      }
-      else if (msg.type === 'pong' && status.value !== 'connected') {
+      } else if (msg.type === 'pong' && status.value !== 'connected') {
         status.value = 'connected'
         reconnectAttempt = 0
       }
@@ -189,8 +177,7 @@ export function useStonxStream(options: UseStonxStreamOptions) {
         if (hadLiveSession) options.onReconnect?.()
         status.value = 'offline'
         scheduleReconnect()
-      }
-      else {
+      } else {
         status.value = 'idle'
       }
     })
@@ -211,14 +198,12 @@ export function useStonxStream(options: UseStonxStreamOptions) {
     if (ws) {
       try {
         ws.send(stonxUnsubscribeJson(options.channels))
-      }
-      catch {
+      } catch {
         /* ignore */
       }
       try {
         ws.close()
-      }
-      catch {
+      } catch {
         /* ignore */
       }
       ws = null

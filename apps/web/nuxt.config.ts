@@ -41,7 +41,11 @@ const authProviders =
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Extend the published Narduk Nuxt Layer
-  extends: ['@narduk-enterprises/narduk-nuxt-template-layer'],
+  extends: [
+    '@narduk-enterprises/narduk-nuxt-template-layer-core',
+    '@narduk-enterprises/narduk-nuxt-template-layer-auth',
+    '@narduk-enterprises/narduk-nuxt-template-layer-analytics',
+  ],
 
   alias: {
     '#server/app-orm-tables': fileURLToPath(new URL(appOrmTablesEntry, import.meta.url)),
@@ -106,11 +110,7 @@ export default defineNuxtConfig({
       appUrl: process.env.SITE_URL || localAppUrl,
       appName: process.env.APP_NAME || 'Narduk Charts',
       /** Stonx market-data WebSocket + HTTPS (AAPL flagship demo). */
-      cspConnectSrc: [
-        process.env.CSP_CONNECT_SRC?.trim(),
-        'wss://stonx.app',
-        'https://stonx.app',
-      ]
+      cspConnectSrc: [process.env.CSP_CONNECT_SRC?.trim(), 'wss://stonx.app', 'https://stonx.app']
         .filter((s): s is string => Boolean(s && s.length > 0))
         .join(','),
       // Analytics (client-side tracking)

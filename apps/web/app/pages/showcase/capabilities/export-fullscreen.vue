@@ -40,7 +40,9 @@ async function onToggleFullscreen() {
   await toggle()
   await nextTick()
   const fsActive =
-    import.meta.client && typeof document !== 'undefined' ? Boolean(document.fullscreenElement) : false
+    import.meta.client && typeof document !== 'undefined'
+      ? Boolean(document.fullscreenElement)
+      : false
   if (import.meta.client && !wasFs && !fsActive) {
     fullscreenHint.value =
       'Fullscreen was blocked (common inside embedded previews). Open this page in a top-level browser tab and try again.'
@@ -106,12 +108,7 @@ async function savePng() {
       <UButton color="primary" variant="soft" @click="onToggleFullscreen">
         {{ isFullscreen ? 'Exit fullscreen' : 'Fullscreen chart' }}
       </UButton>
-      <UButton
-        color="neutral"
-        variant="outline"
-        :loading="exportBusy"
-        @click="onExportPng"
-      >
+      <UButton color="neutral" variant="outline" :loading="exportBusy" @click="onExportPng">
         Download PNG (2×)
       </UButton>
     </div>

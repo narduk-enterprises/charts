@@ -30,8 +30,8 @@ useWebPageSchema({ name: pageTitle, description: pageDescription })
         <NuxtLink to="/docs/quickstart">Quick start</NuxtLink> — first chart in under five minutes.
       </li>
       <li>
-        <NuxtLink to="/docs/examples">Examples</NuxtLink> — runnable demos (including AAPL live stream)
-        and links to showcase routes.
+        <NuxtLink to="/docs/examples">Examples</NuxtLink> — runnable demos (including AAPL live
+        stream) and links to showcase routes.
       </li>
       <li>
         <NuxtLink to="/docs/api">API reference</NuxtLink> — components, composables, utilities.

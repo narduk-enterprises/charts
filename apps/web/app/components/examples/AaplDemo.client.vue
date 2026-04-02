@@ -42,9 +42,7 @@ const SEED_COUNT = 320
 const offlineRandom = createSeededRandom(26_031)
 
 function seedAaplHistory(count: number, startPrice: number): CandleBar[] {
-  const t0 = uiAuditMode
-    ? Date.UTC(2026, 0, 15, 14, 0, 0)
-    : Date.now() - count * STEP_MS
+  const t0 = uiAuditMode ? Date.UTC(2026, 0, 15, 14, 0, 0) : Date.now() - count * STEP_MS
   const rand = uiAuditMode ? createSeededRandom(88_031) : Math.random
   let price = startPrice
   const out: CandleBar[] = []
@@ -62,38 +60,42 @@ function seedAaplHistory(count: number, startPrice: number): CandleBar[] {
 }
 
 const STREAM_CAP = 420
-const { bars: candleBars, pushBar, setBars } = useCandleStream(
-  STREAM_CAP,
-  seedAaplHistory(SEED_COUNT, SEED_PRICE),
-)
+const {
+  bars: candleBars,
+  pushBar,
+  setBars,
+} = useCandleStream(STREAM_CAP, seedAaplHistory(SEED_COUNT, SEED_PRICE))
 
-const { status: streamStatus, connect: connectStonx, disconnect: disconnectStonx, pickRow } =
-  useStonxStream({
-    url: STREAM_URL,
-    channels: [STREAM_CHANNEL],
-    staleAfterMs: 90_000,
-    onMessage(msg) {
-      if (msg.type === 'price_update') {
-        stopDemoTimer()
-        clearFallbackTimer()
-        const row = pickRow(msg.data, 'AAPL')
-        if (row) {
-          livePrice.value = row.price
-          if (row.dayVolume != null) liveDayVolume.value = row.dayVolume
-          if (row.high24h != null) liveHigh24h.value = row.high24h
-          if (row.low24h != null) liveLow24h.value = row.low24h
-          ingestLivePrice(row.price)
-        }
+const {
+  status: streamStatus,
+  connect: connectStonx,
+  disconnect: disconnectStonx,
+  pickRow,
+} = useStonxStream({
+  url: STREAM_URL,
+  channels: [STREAM_CHANNEL],
+  staleAfterMs: 90_000,
+  onMessage(msg) {
+    if (msg.type === 'price_update') {
+      stopDemoTimer()
+      clearFallbackTimer()
+      const row = pickRow(msg.data, 'AAPL')
+      if (row) {
+        livePrice.value = row.price
+        if (row.dayVolume != null) liveDayVolume.value = row.dayVolume
+        if (row.high24h != null) liveHigh24h.value = row.high24h
+        if (row.low24h != null) liveLow24h.value = row.low24h
+        ingestLivePrice(row.price)
       }
-      else if (msg.type === 'error') {
-        console.warn('[stonx] stream error', msg.detail)
-      }
-    },
-    onReconnect() {
-      setBars(seedAaplHistory(SEED_COUNT, SEED_PRICE))
-      lastBarTime = 0
-    },
-  })
+    } else if (msg.type === 'error') {
+      console.warn('[stonx] stream error', msg.detail)
+    }
+  },
+  onReconnect() {
+    setBars(seedAaplHistory(SEED_COUNT, SEED_PRICE))
+    lastBarTime = 0
+  },
+})
 
 let lastBarTime = 0
 
@@ -113,8 +115,7 @@ function ingestLivePrice(price: number) {
       v: 500_000,
     })
     lastBarTime = now
-  }
-  else {
+  } else {
     pushBar({
       t: last.t,
       o: last.o,
@@ -378,7 +379,9 @@ function formatCompactVolume(n: number) {
       <span v-if="streamStatus === 'connected'" :class="streamTextClass">Stream live</span>
       <span
         v-else-if="
-          streamStatus === 'connecting' || streamStatus === 'reconnecting' || streamStatus === 'idle'
+          streamStatus === 'connecting' ||
+          streamStatus === 'reconnecting' ||
+          streamStatus === 'idle'
         "
         :class="streamTextClass"
         >{{ streamStatus === 'reconnecting' ? 'Reconnecting…' : 'Connecting to stream…' }}</span

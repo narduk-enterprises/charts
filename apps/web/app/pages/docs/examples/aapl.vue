@@ -37,12 +37,7 @@ onMounted(() => captureShowcaseView('docs/examples/aapl'))
     <div class="prose prose-sm mt-4 max-w-3xl text-muted dark:prose-invert">
       <p>
         Live candles for <strong>AAPL</strong> (<strong>Apple Inc.</strong>) powered by
-        <ULink
-          to="https://stonx.app"
-          target="_blank"
-          class="font-medium text-primary"
-          >Stonx</ULink
-        >
+        <ULink to="https://stonx.app" target="_blank" class="font-medium text-primary">Stonx</ULink>
         market-data stream at
         <code class="rounded-md bg-muted px-1.5 py-0.5 text-xs text-highlighted"
           >wss://stonx.app/ws/stream</code

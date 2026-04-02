@@ -65,21 +65,8 @@ const overlayLines = computed(() => [
     </g>
 
     <g v-for="line in overlayLines" :key="line.key">
-      <line
-        :class="line.lineClass"
-        :x1="plotLeft"
-        :x2="plotRight - 76"
-        :y1="line.y"
-        :y2="line.y"
-      />
-      <rect
-        :class="line.tagClass"
-        :x="tagX"
-        :y="line.y - 10"
-        width="64"
-        height="20"
-        rx="10"
-      />
+      <line :class="line.lineClass" :x1="plotLeft" :x2="plotRight - 76" :y1="line.y" :y2="line.y" />
+      <rect :class="line.tagClass" :x="tagX" :y="line.y - 10" width="64" height="20" rx="10" />
       <text
         :class="line.textClass"
         :x="tagX + 32"

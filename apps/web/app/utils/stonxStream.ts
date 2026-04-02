@@ -58,7 +58,8 @@ function parsePriceRow(x: unknown): StonxPriceRow | null {
     symbol: r.symbol,
     price: r.price,
     change: typeof change === 'number' || change === null ? change : null,
-    changePercent: typeof changePercent === 'number' || changePercent === null ? changePercent : null,
+    changePercent:
+      typeof changePercent === 'number' || changePercent === null ? changePercent : null,
     lastUpdated: typeof lastUpdated === 'number' ? lastUpdated : Date.now(),
     dayVolume: typeof r.dayVolume === 'number' ? r.dayVolume : undefined,
     high24h: typeof r.high24h === 'number' ? r.high24h : undefined,
