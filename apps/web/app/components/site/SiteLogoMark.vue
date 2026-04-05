@@ -1,0 +1,11 @@
+<template>
+  <img
+    src="/favicon.svg"
+    alt=""
+    width="64"
+    height="64"
+    aria-hidden="true"
+    decoding="async"
+    loading="eager"
+  />
+</template>

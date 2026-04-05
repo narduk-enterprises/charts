@@ -24,6 +24,12 @@ export function useSiteAnalytics() {
     captureCodeCopy: (context: string) => {
       capture('docs_code_copy', { context })
     },
+    captureLeadStart: (surface: string) => {
+      capture('site_lead_start', { surface })
+    },
+    captureLeadSubmit: (surface: string) => {
+      capture('site_lead_submit', { surface })
+    },
     captureGithubOutbound: (destination: 'library' | 'site') => {
       capture('github_outbound_click', { destination })
     },

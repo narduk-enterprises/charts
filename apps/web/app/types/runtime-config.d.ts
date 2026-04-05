@@ -29,6 +29,7 @@ declare module 'nuxt/schema' {
     authTurnstileSiteKey: string
     supabaseUrl: string
     supabasePublishableKey: string
+    contactSalesEmail: string
   }
 }
 

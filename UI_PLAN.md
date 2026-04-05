@@ -1,102 +1,91 @@
-Status: **LOCKED** (2026-03-26)
+Status: **LOCKED** (2026-04-05)
 
 # UI plan — Narduk Charts public site
 
 ## Design principles
 
-- **Dark-forward / trading credible:** default to muted surfaces, sharp borders,
-  primary accent sparingly.
-- **Chart-first:** hero and showcase pages lead with live `narduk-charts`
-  renders inside `ClientOnly` where needed.
-- **Readable docs:** left rail on desktop (`DocsAside`), single column prose,
-  prop tables as stacked grids (no raw HTML tables).
+- **Dark-forward / trading credible:** preserve the current restrained,
+  technical visual language.
+- **Chart-first:** homepage, product, and showcase routes keep live chart
+  examples and direct links into docs and API reference.
+- **Support routes stay secondary:** new About, Contact, Pricing, Use cases, and
+  legal pages should feel consistent with the core site, not like a second
+  landing-page system.
+
+## Brand and identity
+
+- Primary site name stays `Narduk Charts`.
+- Replace the generic activity/N4 icon with a **charts-specific mark**: dark
+  rounded tile, cyan candlestick bars, and green baseline accent.
+- Use the same mark in:
+  - `SiteHeader`
+  - `SiteFooter`
+  - `apps/web/public/favicon.svg`
+  - generated PNG/ICO assets and `site.webmanifest`
 
 ## Top-level navigation (`SiteHeader`)
 
 - **Product** (popover): features, performance, theming, integration,
   enterprise.
-- **Showcase** (popover): chart family routes + capability tours + capabilities
-  index.
+- **Showcase** (popover): chart-family routes plus capability tours.
 - **Docs** (popover): ordered docs map from `apps/web/app/data/site.ts`.
 - **Enterprise** (direct link).
 - **GitHub** (outbound, library).
+- **Contact** (CTA, direct link).
 - **Get started** → `/docs/quickstart`.
-- **Color mode** cycle + **mobile** `USlideover` menu mirroring the same
-  structure.
+- **Color mode** cycle plus mobile `USlideover`.
+
+## Footer strategy (`SiteFooter`)
+
+- Footer is the main discovery surface for the secondary routes.
+- Footer columns should cover:
+  - brand / contact
+  - product routes
+  - use cases
+  - support routes (pricing, contact, changelog, about)
+  - docs/code/legal links
 
 ## Layouts
 
 | Layout      | Use                                                                                  |
 | ----------- | ------------------------------------------------------------------------------------ |
-| `marketing` | Home, product, showcase (header + footer, full-width sections via `UContainer`).     |
+| `marketing` | Home, product, showcase, support, pricing, contact, about, changelog, and legal.     |
 | `docs`      | All `/docs/**` pages + API reference (header, footer, `DocsAside` + content column). |
 
-## Homepage section order (`/`)
+## Page templates
 
-1. Hero: headline, subhead, primary/secondary/GitHub CTAs, credibility chips,
-   **live candle** preview card.
-2. What the library is (scope statement).
-3. Core capabilities (six cards).
-4. Chart family grid (links to showcase routes).
-5. Developer experience (install/CSS/subpaths) + buttons to docs.
-6. Enterprise readiness blurb + link.
-7. CTA band (quick start + features).
-8. Footer via `SiteFooter` (chart + capability + docs links).
+- **Primary product/showcase routes:** current patterns remain canonical.
+- **Support pages:** `UContainer`, readable max-width copy, `UCard` for grouped
+  content, and short CTA rows where helpful.
+- **Use-case child pages:** visible `UBreadcrumb` plus breadcrumb schema helper.
+- **Legal pages:** simple text-first marketing layout, no special chrome.
 
-## Showcase index (`/showcase`)
+## Homepage and core routes
 
-- Hero kicker + description.
-- Responsive card grid: title, id badge, summary, **Live demo** + **API**
-  buttons.
-- Capability list as linked rows.
+- Keep the current homepage section order and showcase/product/docs emphasis.
+- Do not demote `/docs`, `/showcase`, or `/product/*` in favor of a
+  marketing-only IA.
+- Support routes should be linked contextually from pricing, enterprise,
+  changelog, footer, and use-case pages rather than inserted into every hero.
 
-## Individual chart / capability demo template
+## Docs and API presentation
 
-- `UBreadcrumb` (Showcase → page).
-- H1 + narrative.
-- Optional control cluster (`UButton` toggles / `UCheckbox`).
-- `LiveDemoPane` (title, description, `ClientOnly` slot).
-- Two columns: **When to use** / **Interactions** (where relevant).
-- `CodeBlock` with analytics context slug.
-- Row of `UButton` links: API + related showcase/docs.
-
-## Docs pages
-
-- Consistent `prose` article width inside docs layout.
-- Deep links from docs to showcase mirrors.
-
-## API reference
-
-- Index grouped by **Components / Composables / Utilities**.
-- Detail pages: breadcrumb, summary, imports, props grid, models, events, slots,
-  notes callout, example, related buttons.
-
-## Code examples
-
-- `CodeBlock.vue`: monospace, bordered, copy button (top-right), PostHog
-  `docs_code_copy`.
+- Docs remain prose-first with explicit links into showcase and API routes.
+- API reference remains grouped by components, composables, and utilities.
+- External links to GitHub are acceptable for source-adjacent artifacts such as
+  the changelog or security policy.
 
 ## Responsive behavior
 
 - Navigation collapses to slideover under `lg`.
-- Chart cards stack single column on narrow screens; maintain `min-w-0` on chart
-  containers.
+- Contact CTA remains available on both desktop and mobile.
+- Footer can expand column count on larger breakpoints, but secondary links
+  should still scan cleanly on smaller widths.
 
-## Design tokens
+## Design tokens and visuals
 
-- Nuxt UI semantic colors (`primary`, `neutral`, `muted`, `highlighted`,
-  `default`); avoid raw Tailwind palette classes in app code per ESLint.
-
-## Dark / light
-
-- Charts receive `dark` from `useChartAppearance()` tied to Nuxt Color Mode.
-- Theming showcase demonstrates `theme` prop independent of site chrome.
-
-## Live demo framing
-
-- `LiveDemoPane` uses `UCard` body with header text; fallback skeleton for SSR.
-
-## OG / screenshots
-
-- Per-page `useSeo` + `ogImage`; optional future: dedicated OG templates for top
-  routes (layer `OgImage`).
+- Continue using Nuxt UI semantic tokens and shared app-level CSS utilities.
+- Avoid introducing a second palette system or raw one-off styles for support
+  pages.
+- Favicon manifest colors should align with the new cyan mark while public
+  naming stays in parity with `provision.json`.

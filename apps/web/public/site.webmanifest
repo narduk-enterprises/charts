@@ -1,6 +1,6 @@
 {
   "name": "Narduk Charts",
-  "short_name": "Narduk Chart",
+  "short_name": "Narduk Charts",
   "icons": [
     {
       "src": "/favicon-32x32.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#10b981",
-  "background_color": "#0B1120",
+  "theme_color": "#22d3ee",
+  "background_color": "#0c1222",
   "display": "standalone"
 }

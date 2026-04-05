@@ -1,95 +1,96 @@
-Status: **LOCKED** (2026-03-26)
+Status: **LOCKED** (2026-04-05)
 
-# Narduk Charts — Public site, docs & showcase specification
+# Narduk Charts — Public site specification
 
 ## Purpose
 
-`narduk-enterprises/charts` (this repo, app `apps/web`) is the **canonical
-public product, documentation, and showcase surface** for the Vue charting
-library **`narduk-enterprises/narduk-charts`**.
+`narduk-enterprises/charts` is the canonical public product surface for
+`narduk-enterprises/narduk-charts`.
 
 The site must let buyers and engineers answer, without guesswork:
 
-- Which chart families ship and how they look in realistic trading contexts.
-- Which interactions (zoom, sync, streaming, export) are real, public APIs.
-- How to install, theme, and wire events with typed contracts.
-- Why the stack is credible for enterprise trading and fintech desks.
+- Which chart families and interaction models actually ship.
+- How to install, theme, and integrate the library in production Vue apps.
+- How the library fits brokerage, terminal, and embedded market-product
+  contexts.
+- What the support, pricing, changelog, and security posture look like without
+  inventing SaaS behaviors that do not exist.
+
+## Site model
+
+- **Primary surfaces:** `/product/*`, `/showcase/*`, and `/docs/*`.
+- **Secondary support surfaces:** `/use-cases/*`, `/pricing`, `/contact`,
+  `/about`, `/changelog`, `/security`, `/privacy`, `/terms`.
+- **Navigation rule:** keep the primary header focused on Product, Showcase,
+  Docs, Enterprise, GitHub, Contact, and Get started. Secondary surfaces stay
+  discoverable through footer and contextual links rather than a marketing-first
+  header rewrite.
 
 ## Audience segments
 
-| Segment               | Needs                                                                  |
-| --------------------- | ---------------------------------------------------------------------- |
-| Evaluators / buyers   | Credibility, scope clarity, performance posture, integration risk.     |
-| Frontend engineers    | Install paths, API tables, copy-paste examples, data shapes.           |
-| Design system owners  | Theming tokens, contrast modes, embeddability in branded shells.       |
-| Trading product teams | Multi-pane sync, studies pipeline, drawing persistence, audit exports. |
+| Segment               | Needs                                                                 |
+| --------------------- | --------------------------------------------------------------------- |
+| Evaluators / buyers   | Credibility, scope clarity, support path, and integration risk.       |
+| Frontend engineers    | Install paths, API tables, copy-ready examples, and release guidance. |
+| Design system owners  | Theming tokens, accessibility posture, and embeddability.             |
+| Trading product teams | OHLC behavior, sync models, export flows, and desk-oriented examples. |
 
-## Chart showcase strategy
+## Information architecture
 
-- **Inventory source of truth:** Public exports in `narduk-charts`
-  `src/index.ts` (see `CONTRACT.md`).
-- **One showcase route per chart family** with live demo, controls (where
-  meaningful), code sample, when-to-use, interactions, API links.
-- **Capability tours** for cross-cutting behaviors (interactions, sync,
-  realtime, studies, theming, export/fullscreen).
-- **Fixtures:** Central deterministic helpers under `apps/web/app/lib/demo/`;
-  prefer synthetic OHLCV and portfolio-like series over toy random data.
+- **Homepage:** `/` remains the overview entry for product framing.
+- **Product:** `/product/features`, `/product/performance`, `/product/theming`,
+  `/product/integration`, `/product/enterprise`.
+- **Showcase:** `/showcase` plus the chart-family and capability routes mapped
+  from public exports.
+- **Docs:** `/docs` plus installation, quickstart, examples, API reference, and
+  supporting docs routes already present in `apps/web/app/data/site.ts`.
+- **Support:** `/use-cases`, `/use-cases/brokerage`, `/use-cases/terminals`,
+  `/pricing`, `/contact`, `/about`, `/changelog`, `/security`, `/privacy`,
+  `/terms`.
 
-## API docs strategy
+## Docs and source-of-truth rules
 
-- **Hybrid:** Curated `apps/web/app/data/api-docs.ts`
-  (props/events/models/examples) + dynamic route `docs/api/[slug].vue`.
-- **Scope:** Only symbols actually exported from `narduk-charts` root or
-  documented subpaths (`/studies`).
-- **Non-goals:** Undocumented internals (`useChart`, `ChartTooltip`, etc.) stay
-  out of the reference unless promoted to public exports.
+- `/docs` remains the canonical on-site docs hub for evaluators and
+  implementers.
+- Source-adjacent artifacts stay in the library repository: release history
+  (`CHANGELOG.md`), source tree, package releases, and security policy.
+- The site may link to those artifacts, but it does not replace them or fork
+  their authority.
 
-## Page inventory (minimum)
+## Support and commercial posture
 
-- **Product:** `/`, `/product/features`, `/product/enterprise`,
-  `/product/performance`, `/product/theming`, `/product/integration`
-- **Showcase:** `/showcase`, `/showcase/candle`, `/showcase/line`,
-  `/showcase/bar`, `/showcase/pie`, `/showcase/scatter`, `/showcase/histogram`,
-  `/showcase/chart-stack`, `/showcase/capabilities` (+ capability children)
-- **Docs:** `/docs` tree including installation, quickstart, concepts, data,
-  composition, theming, events, performance, realtime, layout, trading-ui,
-  accessibility, faq, migration, `/docs/api`, `/docs/api/*`
-- **Outbound:** GitHub links for library + site source
-  (`apps/web/app/data/site.ts` constants)
+- `/contact` is a lightweight mailto-based technical inquiry path.
+- `/pricing` explains MIT licensing plus direct enterprise support; no fake SKU
+  tables, gated forms, or SaaS billing model.
+- `/security`, `/privacy`, and `/terms` are site-scoped static pages and remain
+  indexable public routes.
 
-## Enterprise positioning
+## Brand direction
 
-- Emphasize **SVG precision**, **explicit interaction contracts**, **sync
-  models**, **streaming buffers**, **export surfaces**, and **bounded library
-  scope** (no DOM ladder / alerts in core).
-- Visual tone: dark-friendly, technical, restrained accent, data-dense — not a
-  rainbow gallery.
+- Preserve the current dark-forward, technical product language.
+- Replace the generic `N4`/activity identity with a charts-specific cyan mark
+  used consistently in the header, footer, favicon source, and generated icon
+  assets.
+- Keep public naming aligned with `provision.json`: `Narduk Charts` is the site
+  and manifest name.
 
-## SEO strategy
+## Analytics
 
-- Unique `useSeo` title + description per major route; intent clusters: trading
-  chart library, financial charting, Vue OHLC, embeddable charts, fintech
-  dashboards.
-- Internal links: homepage → showcase, docs, API; every chart card → API slug;
-  capability pages → relevant docs.
-- Schema: `useWebPageSchema` on pages; site identity via layer `schemaOrg` +
-  `site` config.
+- Use `useSiteAnalytics()` only.
+- Required events: `site_cta_click`, `site_nav_click`, `showcase_page_view`,
+  `docs_page_view`, `api_doc_view`, `docs_code_copy`, `github_outbound_click`,
+  `site_lead_start`, `site_lead_submit`.
+- Analytics must remain no-op safe when PostHog is unconfigured.
 
-## Analytics / funnel strategy
+## Trust and quality bar
 
-- Use layer `usePosthog` via `useSiteAnalytics` composable.
-- Events: `site_cta_click`, `site_nav_click`, `showcase_page_view`,
-  `docs_page_view`, `api_doc_view`, `docs_code_copy`, `github_outbound_click`.
-- No noisy auto-page spam beyond meaningful evaluation steps.
-
-## Trust & quality bar
-
-- Examples must compile against the `@narduk-enterprises/narduk-charts` version
-  pinned in `pnpm-lock.yaml`.
-- No placeholder “coming soon” in production routes covered by `CONTRACT.md`.
-- CI must run `pnpm --filter web run lint` and `typecheck` green.
+- Examples and showcases must compile against the pinned
+  `@narduk-enterprises/narduk-charts` version in `pnpm-lock.yaml`.
+- No placeholder “coming soon” content on any route covered by `CONTRACT.md`.
+- New support routes should feel native to the current site rather than reviving
+  a parallel marketing-only IA or component namespace.
 
 ## Related artifacts
 
-- `UI_PLAN.md` — layout, navigation, and visual structure.
-- `CONTRACT.md` — routable enforcement and anti-drift rules.
+- `UI_PLAN.md` — layout, navigation, and brand guidance.
+- `CONTRACT.md` — required routes, metadata, and anti-drift rules.

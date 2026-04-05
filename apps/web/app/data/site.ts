@@ -2,6 +2,9 @@
 export const LIBRARY_GITHUB_HREF = 'https://github.com/narduk-enterprises/narduk-charts'
 export const SITE_REPO_HREF = 'https://github.com/narduk-enterprises/charts'
 export const NPM_PACKAGE_NAME = '@narduk-enterprises/narduk-charts'
+export const LIBRARY_CHANGELOG_HREF = `${LIBRARY_GITHUB_HREF}/blob/main/CHANGELOG.md`
+export const LIBRARY_SECURITY_HREF = `${LIBRARY_GITHUB_HREF}/security`
+export const LIBRARY_ISSUES_HREF = `${LIBRARY_GITHUB_HREF}/issues`
 
 export type SiteNavItem = { label: string; to: string; description?: string }
 export type SiteNavGroup = { label: string; items: SiteNavItem[] }
@@ -73,6 +76,65 @@ export const docsNav: SiteNavItem[] = [
   { label: 'FAQ', to: '/docs/faq' },
   { label: 'Migration', to: '/docs/migration' },
   { label: 'API reference', to: '/docs/api' },
+]
+
+export const useCaseNav: SiteNavItem[] = [
+  {
+    label: 'Use cases overview',
+    to: '/use-cases',
+    description: 'Buyer-context routes for brokerage, terminals, and embedded surfaces.',
+  },
+  {
+    label: 'Brokerage platforms',
+    to: '/use-cases/brokerage',
+    description: 'Brand-safe charting for retail and pro brokerage experiences.',
+  },
+  {
+    label: 'Terminals & research',
+    to: '/use-cases/terminals',
+    description: 'Linked panes and desk workflows coordinated in Vue state.',
+  },
+]
+
+export const supportNav: SiteNavItem[] = [
+  {
+    label: 'Pricing',
+    to: '/pricing',
+    description: 'MIT licensing plus enterprise support positioning.',
+  },
+  {
+    label: 'Contact',
+    to: '/contact',
+    description: 'Lightweight mailto-based evaluation and support inquiry route.',
+  },
+  {
+    label: 'Changelog',
+    to: '/changelog',
+    description: 'Release themes with links to the source changelog.',
+  },
+  {
+    label: 'About',
+    to: '/about',
+    description: 'Why the charts site and library repo are intentionally split.',
+  },
+]
+
+export const legalNav: SiteNavItem[] = [
+  {
+    label: 'Security',
+    to: '/security',
+    description: 'Security posture, disclosure path, and reliability framing.',
+  },
+  {
+    label: 'Privacy',
+    to: '/privacy',
+    description: 'Site-scoped privacy notice for analytics and mailto contact.',
+  },
+  {
+    label: 'Terms',
+    to: '/terms',
+    description: 'Site terms and MIT-license pointer for the library.',
+  },
 ]
 
 /** Inventory aligned with `narduk-charts` public components (CONTRACT source of truth). */

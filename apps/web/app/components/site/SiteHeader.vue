@@ -23,6 +23,11 @@ function mobileGetStarted() {
   captureCta('mobile_get_started')
   mobileOpen.value = false
 }
+
+function mobileContact() {
+  captureCta('mobile_contact')
+  mobileOpen.value = false
+}
 </script>
 
 <template>
@@ -37,11 +42,7 @@ function mobileGetStarted() {
           class="flex items-center gap-2 font-semibold tracking-tight text-highlighted"
           @click="captureNav('/')"
         >
-          <span
-            class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/15 text-primary ring-1 ring-primary/25"
-          >
-            <UIcon name="i-lucide-activity" class="h-5 w-5" />
-          </span>
+          <SiteLogoMark class="h-9 w-9 shrink-0" />
           <span class="truncate">{{ appName }}</span>
         </NuxtLink>
 
@@ -153,6 +154,16 @@ function mobileGetStarted() {
         </UButton>
 
         <UButton
+          to="/contact"
+          color="neutral"
+          variant="outline"
+          class="hidden sm:inline-flex"
+          @click="captureCta('header_contact')"
+        >
+          Contact
+        </UButton>
+
+        <UButton
           to="/docs/quickstart"
           color="primary"
           size="sm"
@@ -246,6 +257,9 @@ function mobileGetStarted() {
             @click="captureGithubOutbound('library')"
           >
             Library on GitHub
+          </UButton>
+          <UButton to="/contact" color="neutral" variant="outline" @click="mobileContact">
+            Contact
           </UButton>
           <UButton to="/docs/quickstart" color="primary" @click="mobileGetStarted">
             Get started
